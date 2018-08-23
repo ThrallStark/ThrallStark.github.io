@@ -1,8 +1,12 @@
 # Basic
 title: Thrall Leo
-subtitle:萨尔的星辰大海
+subtitle:萨尔的星辰大海 
 
-permalink: /:year/:month/:title/
+#welcome_message:
+
+#description: 
+
+# permalink: /:year/:month/:title/
 
 # Format
 highlighter: rouge
