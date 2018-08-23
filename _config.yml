@@ -2,6 +2,15 @@
 title: Thrall Leo
 subtitle:萨尔的星辰大海
 
+welcome_message:
+
+description: 
+creator:
+
+url: 
+
+permalink: /:year/:month/:title/
+
 # Format
 highlighter: rouge
 
