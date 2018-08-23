@@ -1,7 +1,7 @@
 # Basic
 title: Thrall Leo
-subtitle: 萨尔的星辰大海
-welcome_message:
+subtitle: 
+welcome_message:萨尔的星辰大海
 description: 
 
 permalink: /:year/:month/:title/
@@ -19,8 +19,6 @@ blog_button:
 
 # Navigation buttons in the front page.
 nav:
-
-- {title: , description: , url: }
 
 # Pagination
 gems: [jekyll-paginate]
