@@ -35,6 +35,4 @@ social:
     mail: thrall.leo@gmail.com
 
 # Google Analytics
-ga:
-    # id: your_ga_id
-    # host: your_host
+google analytics: UA-124595154-1
