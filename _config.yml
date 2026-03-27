@@ -1,0 +1,44 @@
+# Basic
+title: Thrall Leo
+subtitle: 萨尔的星辰大海
+
+# Format
+highlighter: rouge
+
+# supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
+cover_color: 
+
+# Navigation buttons — Profile first, then Report
+nav:
+    - title: Profile
+      description: 个人简介
+      url: /profile/
+      target: _self
+    - title: Report
+      description: 研究报告
+      url: /report/
+      target: _self
+
+# Legacy blog_button config
+blog_button:
+    title: Report
+    description: 研究报告
+    url: /report/
+
+# Pagination
+gems: [jekyll-paginate]
+paginate: 10
+paginate_path: "page/:num/"
+
+# Comment
+comment:
+    disqus: thrallstark
+
+# Social
+social:
+    github: ThrallStark
+    twitter: thrall_war
+    mail: thrall.leo@gmail.com
+
+# Google Analytics
+google analytics: UA-124595154-1
