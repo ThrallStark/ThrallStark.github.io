@@ -8,18 +8,19 @@ highlighter: rouge
 # supported colors: blue, green, purple, red, orange or slate.
 cover_color: 
 
-# Navigation — Profile only (Report button removed)
+# Navigation
 nav:
     - title: Profile
       description: 个人简介
       url: /profile/
       target: _self
+    - title: Report
+      description: 研究报告
+      url: /report/
+      target: _self
 
-# Legacy blog_button (disabled)
-# blog_button:
-#     title: Report
-#     description: 研究报告
-#     url: /report/
+# blog_button disabled to avoid duplicate
+blog_button:
 
 # Pagination
 gems: [jekyll-paginate]
