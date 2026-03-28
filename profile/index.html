@@ -5,24 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>刘昊辰 - 资深车联网产品经理</title>
     <script>
-    // 隐藏工作经历卡片旁的时间线圆点
     document.addEventListener("DOMContentLoaded", function() {
-        // 等待 React 渲染完成
         setTimeout(function() {
-            // 查找所有时间线圆点 - 基于位置和样式特征
             var allDivs = document.querySelectorAll("div");
             allDivs.forEach(function(div) {
-                var style = div.style || {};
-                var computedStyle = window.getComputedStyle(div);
-                // 匹配 w-4 h-4 rounded-full 的元素
-                if (computedStyle.width === "16px" && 
-                    computedStyle.height === "16px" && 
-                    computedStyle.borderRadius === "50%" &&
-                    computedStyle.position === "absolute") {
+                var cs = window.getComputedStyle(div);
+                if (cs.width === "16px" && cs.height === "16px" && 
+                    cs.borderRadius === "50%" && cs.position === "absolute") {
                     div.style.display = "none";
                 }
             });
-        }, 2000); // 等待 React 渲染
+        }, 2000);
     });
     </script>
     <script type="module" crossorigin="" src="./assets/index-Cj8vkcV3.js"></script>
