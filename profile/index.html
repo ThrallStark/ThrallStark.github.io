@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>刘昊辰 - 资深车联网产品经理</title>
     <style>
-    /* 隐藏工作经历卡片旁的时间线圆点 */
-    .timeline-card > div:first-child[style*="rounded-full"] { display: none !important; }
+    /* 隐藏工作经历卡片旁的时间线圆点 - 使用更通用的选择器 */
+    [class*="timeline-card"] > div[class*="absolute"][class*="w-4"][class*="h-4"][class*="rounded-full"] { 
+        display: none !important; 
+    }
     </style>
     <script type="module" crossorigin="" src="./assets/index-Cj8vkcV3.js"></script>
     <link rel="stylesheet" crossorigin="" href="./assets/index-DsZLHQ96.css"/>
