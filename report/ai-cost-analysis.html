@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI成本全景分析 - 2025年度深度研究报告</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        /* 导航 */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+            padding: 16px 24px;
+        }
+        
+        .nav-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .nav-logo {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .nav h1 {
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .nav-btn {
+            padding: 8px 16px;
+            background: transparent;
+            border: none;
+            color: #94a3b8;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+        
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+            background: radial-gradient(ellipse at top, rgba(6, 182, 212, 0.15) 0%, transparent 60%);
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(6, 182, 212, 0.2);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 9999px;
+            font-size: 12px;
+            color: #06b6d4;
+            margin-bottom: 24px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 12px;
+            background: linear-gradient(90deg, #06b6d4, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero h2 {
+            font-size: 20px;
+            color: #94a3b8;
+            margin-bottom: 24px;
+        }
+        
+        .hero p {
+            max-width: 720px;
+            font-size: 18px;
+            color: #cbd5e1;
+            margin-bottom: 48px;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            max-width: 900px;
+            margin-bottom: 48px;
+        }
+        
+        .stat-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(71, 85, 105, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            backdrop-filter: blur(8px);
+        }
+        
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .stat-value.red { background: linear-gradient(90deg, #ef4444, #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-value.green { background: linear-gradient(90deg, #22c55e, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-value.yellow { background: linear-gradient(90deg, #eab308, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-value.purple { background: linear-gradient(90deg, #a855f7, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #64748b;
+        }
+        
+        .hero-btn {
+            padding: 16px 32px;
+            background: linear-gradient(90deg, #06b6d4, #2563eb);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 24px rgba(6, 182, 212, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(6, 182, 212, 0.4);
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+        
+        .section-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .section-icon.cyan { background: linear-gradient(135deg, #06b6d4, #2563eb); }
+        .section-icon.green { background: linear-gradient(135deg, #22c55e, #10b981); }
+        .section-icon.purple { background: linear-gradient(135deg, #a855f7, #ec4899); }
+        .section-icon.blue { background: linear-gradient(135deg, #3b82f6, #6366f1); }
+        .section-icon.orange { background: linear-gradient(135deg, #f97316, #eab308); }
+        
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .section-subtitle {
+            color: #64748b;
+        }
+        
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, #334155, transparent);
+            margin-bottom: 48px;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+        }
+        
+        th {
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 1px solid #334155;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+        
+        td {
+            padding: 16px;
+            border-bottom: 1px solid #1e293b;
+            color: #e2e8f0;
+        }
+        
+        tr:hover {
+            background: rgba(255,255,255,0.02);
+        }
+        
+        .highlight-row {
+            background: rgba(6, 182, 212, 0.1);
+        }
+        
+        .highlight-row td:first-child {
+            color: #06b6d4;
+        }
+        
+        /* Cards */
+        .card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(71, 85, 105, 0.3);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+        
+        .card h3 {
+            font-size: 18px;
+            color: white;
+            margin-bottom: 16px;
+        }
+        
+        /* Progress bars */
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .progress-label {
+            width: 120px;
+            font-size: 12px;
+            color: #64748b;
+        }
+        
+        .progress-bar {
+            flex: 1;
+            height: 24px;
+            background: rgba(51, 65, 85, 0.5);
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 8px;
+            font-size: 12px;
+            color: white;
+        }
+        
+        .progress-value {
+            width: 60px;
+            text-align: right;
+            font-size: 14px;
+            color: white;
+        }
+        
+        /* Charts placeholder */
+        .chart-img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 24px;
+        }
+        
+        /* Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        
+        @media (max-width: 768px) {
+            .grid-2, .hero-stats {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 { font-size: 32px; }
+            .nav-links { display: none; }
+        }
+        
+        /* Insight box */
+        .insight {
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 24px;
+        }
+        
+        .insight-title {
+            color: #06b6d4;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 48px 24px;
+            background: #020617;
+            border-top: 1px solid #1e293b;
+            text-align: center;
+        }
+        
+        .footer-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+        }
+        
+        .footer-meta {
+            color: #64748b;
+            font-size: 14px;
+        }
+        
+        .footer-note {
+            color: #475569;
+            font-size: 12px;
+            margin-top: 16px;
+        }
+        
+        /* List */
+        .check-list {
+            list-style: none;
+        }
+        
+        .check-list li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+        
+        .check-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #06b6d4;
+        }
+        
+        .highlight {
+            color: #22c55e;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <div class="nav-title">
+                <div class="nav-logo">AI</div>
+                <h1>AI成本全景</h1>
+            </div>
+            <div class="nav-links">
+                <button class="nav-btn" onclick="scrollToSection('compute')">算力成本</button>
+                <button class="nav-btn" onclick="scrollToSection('talent')">人力成本</button>
+                <button class="nav-btn" onclick="scrollToSection('inference')">推理成本</button>
+                <button class="nav-btn" onclick="scrollToSection('chain')">全链条</button>
+                <button class="nav-btn" onclick="scrollToSection('optimization')">优化策略</button>
+                <button class="nav-btn" onclick="scrollToSection('trends')">未来趋势</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="hero">
+        <span class="hero-badge">2025年度深度研究报告</span>
+        <h1>AI成本全景</h1>
+        <h2>全链条成本分析</h2>
+        <p>从算力采购到电力消耗，从人才薪资到数据标注，深度拆解AI应用背后的真实成本结构</p>
+        
+        <div class="hero-stats">
+            <div class="stat-card">
+                <div class="stat-value red">$78M</div>
+                <div class="stat-label">GPT-4训练成本</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value green">99.5%</div>
+                <div class="stat-label">推理成本降幅(5年)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value yellow">945TWh</div>
+                <div class="stat-label">2030年预测耗电</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value purple">$200万</div>
+                <div class="stat-label">AI科学家年薪</div>
+            </div>
+        </div>
+        
+        <button class="hero-btn" onclick="scrollToSection('compute')">开始探索 ↓</button>
+    </div>
+
+    <!-- 算力成本 -->
+    <section id="compute">
+        <div class="section-header">
+            <div class="section-icon cyan">💻</div>
+            <div>
+                <h2 class="section-title">算力成本</h2>
+                <p class="section-subtitle">AI的"基础设施"</p>
+            </div>
+        </div>
+        <div class="divider"></div>
+        
+        <h3 style="margin-bottom:16px;color:white;">🖥️ 大模型训练成本对比</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>模型</th>
+                    <th>训练成本</th>
+                    <th>GPU配置</th>
+                    <th>训练时间</th>
+                    <th>电力消耗</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>GPT-4</td><td><strong>$78M</strong></td><td>25,000 A100</td><td>90天</td><td>50,000 MWh</td></tr>
+                <tr><td>Claude 3.5</td><td><strong>$100M</strong></td><td>未知</td><td>-</td><td>-</td></tr>
+                <tr><td>Llama 3.1</td><td><strong>$60M</strong></td><td>16,000 H100</td><td>-</td><td>-</td></tr>
+                <tr class="highlight-row"><td>DeepSeek-V3</td><td><strong style="color:#22c55e">$5.6M</strong></td><td>2,048 H800</td><td>60天</td><td>12,000 MWh</td></tr>
+                <tr><td>Gemini Ultra</td><td><strong>$191M</strong></td><td>未知</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+        
+        <div class="insight">
+            <div class="insight-title">💡 关键洞察</div>
+            <p>DeepSeek-V3通过MoE架构和高效并行策略，将训练成本降至同类模型的<span class="highlight">1/10至1/18</span></p>
+        </div>
+        
+        <img src="/assets/report/ai_cost_analysis.png" alt="AI Cost Analysis" class="chart-img">
+    </section>
+
+    <!-- 数据中心成本 -->
+    <section style="background:#0f172a;padding-left:calc((100vw - 1280px)/2 + 24px);padding-right:calc((100vw - 1280px)/2 + 24px);max-width:none;">
+        <div style="max-width:1280px;margin:0 auto;">
+            <div class="section-header">
+                <div class="section-icon orange">⚡</div>
+                <div>
+                    <h2 class="section-title">数据中心成本</h2>
+                    <p class="section-subtitle">每GW成本结构</p>
+                </div>
+            </div>
+            <div class="divider"></div>
+            
+            <div class="progress-item">
+                <div class="progress-label">GPU服务器</div>
+                <div class="progress-bar">
+                    <div class="progress-fill bg-red-500" style="width:56.8%;background:#ef4444;">56.8%</div>
+                </div>
+                <div class="progress-value">$250M</div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-label">电力基础设施</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:18.2%;background:#eab308;">18.2%</div>
+                </div>
+                <div class="progress-value">$80M</div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-label">网络设备</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:9.8%;background:#06b6d4;">9.8%</div>
+                </div>
+                <div class="progress-value">$43M</div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-label">存储设备</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:4.3%;background:#a855f7;">4.3%</div>
+                </div>
+                <div class="progress-value">$19M</div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-label">冷却系统</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:3.4%;background:#3b82f6;">3.4%</div>
+                </div>
+                <div class="progress-value">$15M</div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-label">其他</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:8%;background:#475569;">8%</div>
+                </div>
+                <div class="progress-value">$35M</div>
+            </div>
+            <div style="margin-top:16px;padding-top:16px;border-top:1px solid #334155;display:flex;justify-content:space-between;">
+                <span style="color:#64748b;">总计</span>
+                <strong style="color:white;font-size:20px;">~$440M</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- 人力成本 -->
+    <section id="talent">
+        <div class="section-header">
+            <div class="section-icon purple">👥</div>
+            <div>
+                <h2 class="section-title">人力成本</h2>
+                <p class="section-subtitle">AI的"最昂贵资源"</p>
+            </div>
+        </div>
+        <div class="divider"></div>
+        
+        <h3 style="margin-bottom:16px;color:white;">💼 AI人才薪资水平 (2025)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>职位</th>
+                    <th>平均月薪</th>
+                    <th>年薪范围</th>
+                    <th>经验要求</th>
+                    <th>市场供需</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>AI科学家/负责人</td>
+                    <td><strong style="color:#a855f7">$130K</strong></td>
+                    <td>150-200万</td>
+                    <td>10年+</td>
+                    <td><span style="background:rgba(239,68,68,0.2);color:#f87171;padding:4px 8px;border-radius:4px;font-size:12px;">极度紧缺</span></td>
+                </tr>
+                <tr>
+                    <td>大模型算法工程师</td>
+                    <td><strong style="color:#a855f7">$72K</strong></td>
+                    <td>80-120万</td>
+                    <td>5-10年</td>
+                    <td><span style="background:rgba(249,115,22,0.2);color:#fb923c;padding:4px 8px;border-radius:4px;font-size:12px;">严重紧缺</span></td>
+                </tr>
+                <tr>
+                    <td>深度学习工程师</td>
+                    <td><strong style="color:#a855f7">$65K</strong></td>
+                    <td>70-100万</td>
+                    <td>3-5年</td>
+                    <td><span style="background:rgba(234,179,8,0.2);color:#facc15;padding:4px 8px;border-radius:4px;font-size:12px;">紧缺</span></td>
+                </tr>
+                <tr>
+                    <td>NLP工程师</td>
+                    <td><strong style="color:#a855f7">$60K</strong></td>
+                    <td>60-90万</td>
+                    <td>3-5年</td>
+                    <td><span style="background:rgba(234,179,8,0.2);color:#facc15;padding:4px 8px;border-radius:4px;font-size:12px;">紧缺</span></td>
+                </tr>
+                <tr>
+                    <td>AI产品经理</td>
+                    <td><strong style="color:#a855f7">$45K</strong></td>
+                    <td>50-80万</td>
+                    <td>3-5年</td>
+                    <td><span style="background:rgba(34,197,94,0.2);color:#4ade80;padding:4px 8px;border-radius:4px;font-size:12px;">供需平衡</span></td>
+                </tr>
+                <tr>
+                    <td>数据标注员</td>
+                    <td><strong style="color:#a855f7">$8K</strong></td>
+                    <td>8-12万</td>
+                    <td>无要求</td>
+                    <td><span style="background:rgba(100,116,139,0.2);color:#94a3b8;padding:4px 8px;border-radius:4px;font-size:12px;">供过于求</span></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="insight">
+            <div class="insight-title">📊 人力成本占比变化</div>
+            <ul class="check-list">
+                <li>产品开发初期：<span class="highlight">57%</span> - 核心团队搭建、算法研发</li>
+                <li>规模化运营期：<span class="highlight">36%</span> - 团队稳定、自动化程度提高</li>
+                <li>成熟稳定期：<span class="highlight">22%</span> - 运维为主、人员结构优化</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 推理成本 -->
+    <section id="inference" style="background:#020617;padding-left:calc((100vw - 1280px)/2 + 24px);padding-right:calc((100vw - 1280px)/2 + 24px);max-width:none;">
+        <div style="max-width:1280px;margin:0 auto;">
+            <div class="section-header">
+                <div class="section-icon green">🚀</div>
+                <div>
+                    <h2 class="section-title">推理成本</h2>
+                    <p class="section-subtitle">AI应用的"日常开销"</p>
+                </div>
+            </div>
+            <div class="divider"></div>
+            
+            <h3 style="margin-bottom:16px;color:white;">💰 API定价对比 ($/百万token)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>提供商/模型</th>
+                        <th>输入</th>
+                        <th>输出</th>
+                        <th>性价比</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-row">
+                        <td>DeepSeek V3</td>
+                        <td>$0.27</td>
+                        <td>$1.08</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td>GPT-4o mini</td>
+                        <td>$0.15</td>
+                        <td>$0.60</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td>GPT-4o</td>
+                        <td>$2.50</td>
+                        <td>$15.00</td>
+                        <td>⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td>Claude Sonnet</td>
+                        <td>$3.00</td>
+                        <td>$15.00</td>
+                        <td>⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td>GPT-4 Pro</td>
+                        <td>$15.00</td>
+                        <td>$120.00</td>
+                        <td>⭐⭐</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="insight">
+                <div class="insight-title">📉 推理成本下降趋势</div>
+                <p style="margin-bottom:12px;">5年累计降幅 <span class="highlight">99.5%</span></p>
+                <p style="color:#64748b;font-size:14px;">2020: $60/M token → 2025: $0.27/M token</p>
+            </div>
+            
+            <h3 style="margin:24px 0 16px;color:white;">📱 典型应用场景月度成本</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>应用场景</th>
+                        <th>小型规模</th>
+                        <th>大型规模</th>
+                        <th>主要成本构成</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>AI客服</td><td>$500</td><td>$5,000</td><td>Token+人力</td></tr>
+                    <tr><td>内容生成</td><td>$300</td><td>$3,000</td><td>Token</td></tr>
+                    <tr><td>编程助手</td><td>$800</td><td>$5,000</td><td>Token+算力</td></tr>
+                    <tr><td>AI搜索</td><td>$2,000</td><td>$10,000</td><td>Token+存储</td></tr>
+                    <tr><td>企业RAG</td><td>$5,000</td><td>$30,000</td><td>Token+存储+人力</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 全链条成本 -->
+    <section id="chain">
+        <div class="section-header">
+            <div class="section-icon blue">🔗</div>
+            <div>
+                <h2 class="section-title">全链条成本结构</h2>
+                <p class="section-subtitle">从训练到运营的完整视图</p>
+            </div>
+        </div>
+        <div class="divider"></div>
+        
+        <div class="grid-2">
+            <div class="card">
+                <h3>📊 训练阶段成本构成</h3>
+                <p style="color:#64748b;font-size:12px;margin-bottom:16px;">以$58M训练成本为例</p>
+                
+                <div class="progress-item">
+                    <div class="progress-label">硬件(GPU/TPU)</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width:60%;background:#ef4444;">60%</div>
+                    </div>
+                    <div class="progress-value">$35M</div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-label">电力消耗</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width:15%;background:#eab308;">15%</div>
+                    </div>
+                    <div class="progress-value">$8.7M</div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-label">人力资源</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width:10%;background:#a855f7;">10%</div>
+                    </div>
+                    <div class="progress-value">$5.8M</div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-label">数据标注与清洗</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width:8%;background:#06b6d4;">8%</div>
+                    </div>
+                    <div class="progress-value">$4.6M</div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-label">基础设施</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width:5%;background:#3b82f6;">5%</div>
+                    </div>
+                    <div class="progress-value">$2.9M</div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-label">其他</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width:2%;background:#475569;">2%</div>
+                    </div>
+                    <div class="progress-value">$1.2M</div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>⚖️ 自建 vs 云服务 TCO对比 (3年)</h3>
+                
+                <div style="background:rgba(51,65,85,0.3);border-radius:8px;padding:16px;margin-bottom:12px;">
+                    <div style="color:#94a3b8;font-size:14px;margin-bottom:12px;">小型 (100 GPU)</div>
+                    <div style="display:flex;gap:16px;">
+                        <div style="flex:1;">
+                            <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;">
+                                <span style="color:#06b6d4;">自建</span>
+                                <span style="color:#06b6d4;">$5M</span>
+                            </div>
+                            <div style="height:12px;background:#334155;border-radius:6px;overflow:hidden;">
+                                <div style="width:8%;height:100%;background:#06b6d4;"></div>
+                            </div>
+                        </div>
+                        <div style="flex:1;">
+                            <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;">
+                                <span style="color:#a855f7;">云服务</span>
+                                <span style="color:#a855f7;">$8M</span>
+                            </div>
+                            <div style="height:12px;background:#334155;border-radius:6px;overflow:hidden;">
+                                <div style="width:13%;height:100%;background:#a855f7;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background:rgba(51,65,85,0.3);border-radius:8px;padding:16px;margin-bottom:12px;">
+                    <div style="color:#94a3b8;font-size:14px;margin-bottom:12px;">中型 (1000 GPU)</div>
+                    <div style="display:flex;gap:16px;">
+                        <div style="flex:1;">
+                            <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;">
+                                <span style="color:#06b6d4;">自建</span>
+                                <span style="color:#06b6d4;">$45M</span>
+                            </div>
+                            <div style="height:12px;background:#334155;border-radius:6px;overflow:hidden;">
+                                <div style="width:75%;height:100%;background:#06b6d4;"></div>
+                            </div>
+                        </div>
+                        <div style="flex:1;">
+                            <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;">
+                                <span style="color:#a855f7;">云服务</span>
+                                <span style="color:#a855f7;">$70M</span>
+                            </div>
+                            <div style="height:12px;background:#334155;border-radius:6px;overflow:hidden;">
+                                <div style="width:100%;height:100%;background:#a855f7;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background:rgba(51,65,85,0.3);border-radius:8px;padding:16px;">
+                    <div style="color:#94a3b8;font-size:14px;margin-bottom:12px;">大型 (10000 GPU)</div>
+                    <div style="display:flex;gap:16px;">
+                        <div style="flex:1;">
+                            <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;">
+                                <span style="color:#06b6d4;">自建</span>
+                                <span style="color:#06b6d4;">$400M</span>
+                            </div>
+                            <div style="height:12px;background:#334155;border-radius:6px;overflow:hidden;">
+                                <div style="width:67%;height:100%;background:#06b6d4;"></div>
+                            </div>
+                        </div>
+                        <div style="flex:1;">
+                            <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;">
+                                <span style="color:#a855f7;">云服务</span>
+                                <span style="color:#a855f7;">$600M</span>
+                            </div>
+                            <div style="height:12px;background:#334155;border-radius:6px;overflow:hidden;">
+                                <div style="width:100%;height:100%;background:#a855f7;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <img src="/assets/report/ai_cost_chain.png" alt="AI Cost Chain" class="chart-img">
+    </section>
+
+    <!-- 优化策略 -->
+    <section id="optimization" style="background:#0f172a;padding-left:calc((100vw - 1280px)/2 + 24px);padding-right:calc((100vw - 1280px)/2 + 24px);max-width:none;">
+        <div style="max-width:1280px;margin:0 auto;">
+            <div class="section-header">
+                <div class="section-icon cyan">🎯</div>
+                <div>
+                    <h2 class="section-title">成本优化策略</h2>
+                    <p class="section-subtitle">降低AI应用成本的有效方法</p>
+                </div>
+            </div>
+            <div class="divider"></div>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <h3>⚙️ 技术优化手段</h3>
+                    <ul class="check-list">
+                        <li><strong>模型压缩</strong> - 700亿参数模型压缩至70亿
+                            <ul style="margin-left:16px;color:#64748b;font-size:13px;">
+                                <li style="padding-left:0;">• 推理成本下降 <span class="highlight">70%</span></li>
+                                <li style="padding-left:0;">• 性能仅下降 <span class="highlight">3-5%</span></li>
+                            </ul>
+                        </li>
+                        <li><strong>量化部署</strong> - FP16/INT8量化</li>
+                        <li><strong>缓存策略</strong> - 对高频问题启用缓存
+                            <ul style="margin-left:16px;color:#64748b;font-size:13px;">
+                                <li style="padding-left:0;">• 缓存命中率 <span class="highlight">30-50%</span></li>
+                                <li style="padding-left:0;">• Token消耗降低 <span class="highlight">40%</span></li>
+                            </ul>
+                        </li>
+                        <li><strong>批处理优化</strong> - 动态batching</li>
+                        <li><strong>模型蒸馏</strong> - 知识迁移到小模型</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>📊 运营优化手段</h3>
+                    <ul class="check-list">
+                        <li><strong>混合云架构</strong> - 峰值用云、基线自建</li>
+                        <li><strong>GPU调度优化</strong> - 提升利用率至80%+</li>
+                        <li><strong>电力采购</strong> - 长期协议锁定价格</li>
+                        <li><strong>自动化流水线</strong> - 减少人工干预</li>
+                        <li><strong>开源模型替代</strong> - 降低许可成本</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 未来趋势 -->
+    <section id="trends">
+        <div class="section-header">
+            <div class="section-icon orange">🔮</div>
+            <div>
+                <h2 class="section-title">未来趋势与建议</h2>
+                <p class="section-subtitle">把握AI成本演进方向</p>
+            </div>
+        </div>
+        <div class="divider"></div>
+        
+        <h3 style="margin-bottom:16px;color:white;">📈 成本趋势预测 (2025→2030)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>指标</th>
+                    <th>2025年</th>
+                    <th>2030年预测</th>
+                    <th>变化</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>推理成本 ($/百万token)</td><td>$0.27</td><td>$0.01</td><td><span style="color:#22c55e;">↓ 96%</span></td></tr>
+                <tr><td>训练成本 (同等性能)</td><td>$5M</td><td>$1M</td><td><span style="color:#22c55e;">↓ 80%</span></td></tr>
+                <tr><td>数据中心耗电</td><td>500 TWh</td><td>945 TWh</td><td><span style="color:#f97316;">↑ 89%</span></td></tr>
+                <tr><td>GPU能效比</td><td>1x</td><td>5x</td><td><span style="color:#22c55e;">↑ 400%</span></td></tr>
+            </tbody>
+        </table>
+        
+        <img src="/assets/report/ai_cost_trends.png" alt="AI Cost Trends" class="chart-img">
+        
+        <div class="card" style="background:rgba(6,182,212,0.1);border-color:rgba(6,182,212,0.3);">
+            <h3 style="color:#06b6d4;">🎯 对企业的建议</h3>
+            <ul class="check-list">
+                <li><strong style="color:#06b6d4;">1.</strong> 选择适合规模的算力方案，初创期优先云服务</li>
+                <li><strong style="color:#06b6d4;">2.</strong> 建立完善的成本监控体系，精确到Token级别</li>
+                <li><strong style="color:#06b6d4;">3.</strong> 关注开源模型进展，平衡性能与成本</li>
+                <li><strong style="color:#06b6d4;">4.</strong> 推理成本5年下降99.5%，AI应用门槛持续降低</li>
+            </ul>
+        </div>
+        
+        <div class="insight" style="margin-top:24px;">
+            <p>对于企业而言，理解AI全链条成本结构，制定适合自身阶段的成本策略，是AI成功落地的关键。</p>
+            <p style="margin-top:8px;">随着技术持续进步和竞争加剧，AI成本将继续下降，更多企业将能够负担并从中获益。</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-title">AI成本全景分析</div>
+        <div class="footer-meta">数据来源：IEA、SemiAnalysis、OpenAI、DeepSeek等 | 报告日期：2025年3月</div>
+        <div class="footer-note">本报告仅供参考，实际成本可能因具体情况而异</div>
+    </footer>
+
+    <script>
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // 窗口滚动时更新导航高亮
+        const sections = ['compute', 'talent', 'inference', 'chain', 'optimization', 'trends'];
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY + 100;
+            sections.forEach(id => {
+                const section = document.getElementById(id);
+                if (section) {
+                    const top = section.offsetTop;
+                    const bottom = top + section.offsetHeight;
+                    // 可以添加导航高亮逻辑
+                }
+            });
+        });
+    </script>
+</body>
+</html>
