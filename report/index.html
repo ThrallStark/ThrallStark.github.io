@@ -3,448 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI成本全景分析 - 昊辰的星辰大海</title>
+    <title>研究报告 - 昊辰的星辰大海</title>
+    <link rel="stylesheet" href="/css/main.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         :root {
-            --bg: #0f172a;
-            --bg-secondary: #1e293b;
-            --text: #f1f5f9;
-            --text-muted: #94a3b8;
-            --cyan: #22d3ee;
-            --purple: #a855f7;
-            --green: #22c55e;
-            --red: #ef4444;
-            --yellow: #eab308;
-            --orange: #f97316;
+            --cyan: #06b6d4;
+            --cyan-light: #22d3ee;
+            --purple: #8b5cf6;
+            --dark: #0f172a;
+            --gray: #64748b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
-        
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        /* Hero */
-        .hero {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            color: #e2e8f0;
+        }
+        
+        .report-page {
+            min-height: 100vh;
+            padding: 100px 24px 60px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .page-header {
             text-align: center;
-            background: linear-gradient(180deg, var(--bg) 0%, var(--bg-secondary) 100%);
-            position: relative;
-            overflow: hidden;
+            margin-bottom: 60px;
         }
         
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 30%, rgba(34, 211, 238, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 70%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
-            animation: rotate 30s linear infinite;
-        }
-        
-        @keyframes rotate { to { transform: rotate(360deg); } }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--cyan), var(--purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Stats */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            padding: 60px 20px;
-            background: var(--bg);
-        }
-        
-        .stat-card {
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            padding: 24px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .stat-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-        
-        .stat-label {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-        
-        .text-cyan { color: var(--cyan); }
-        .text-purple { color: var(--purple); }
-        .text-green { color: var(--green); }
-        .text-red { color: var(--red); }
-        .text-yellow { color: var(--yellow); }
-        .text-orange { color: var(--orange); }
-        
-        .bg-cyan { background: linear-gradient(135deg, #0891b2, var(--cyan)); }
-        .bg-green { background: linear-gradient(135deg, #16a34a, var(--green)); }
-        .bg-yellow { background: linear-gradient(135deg, #ca8a04, var(--yellow)); }
-        .bg-purple { background: linear-gradient(135deg, #9333ea, var(--purple)); }
-        .bg-red { background: linear-gradient(135deg, #dc2626, var(--red)); }
-        
-        /* Section */
-        .section {
-            padding: 80px 20px;
-            background: var(--bg);
-        }
-        
-        .section h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-        
-        .section h2::before {
-            content: "";
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--cyan), var(--purple));
-            margin: 0 auto 1rem;
+        .gold-line {
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #06b6d4, #8b5cf6);
+            margin: 0 auto 16px;
             border-radius: 2px;
         }
         
-        /* Card */
-        .card {
-            background: var(--bg-secondary);
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 12px;
+        }
+        
+        .page-header p {
+            color: #64748b;
+            font-size: 1rem;
+        }
+        
+        /* 报告卡片 */
+        .report-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(71, 85, 105, 0.3);
             border-radius: 16px;
             padding: 32px;
             margin-bottom: 24px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--cyan);
-        }
-        
-        .card p {
-            color: var(--text-muted);
-            line-height: 1.8;
-        }
-        
-        /* Table */
-        .table-wrapper {
-            overflow-x: auto;
-            margin: 2rem 0;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        
-        th, td {
-            padding: 16px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        th {
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-        
-        tr:hover td {
-            background: rgba(255,255,255,0.05);
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px;
-            background: #020617;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-        
-        footer a {
-            color: var(--cyan);
+            transition: all 0.3s ease;
+            display: block;
             text-decoration: none;
         }
         
-        /* Grid */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        .report-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(6, 182, 212, 0.5);
+            box-shadow: 0 12px 40px rgba(6, 182, 212, 0.15);
+        }
+        
+        .report-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+        
+        .report-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 8px;
+        }
+        
+        .report-card:hover .report-title {
+            color: #06b6d4;
+        }
+        
+        .report-meta {
+            display: flex;
+            gap: 16px;
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+        
+        .report-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(6, 182, 212, 0.2);
+            color: #06b6d4;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+        }
+        
+        .report-desc {
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        
+        .report-stats {
+            display: flex;
             gap: 24px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(71, 85, 105, 0.3);
         }
         
-        /* Image */
-        .report-img {
-            width: 100%;
-            border-radius: 12px;
-            margin: 2rem 0;
+        .stat-item {
+            text-align: center;
         }
         
-        /* Back link */
-        .back-link {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: var(--bg-secondary);
-            padding: 10px 20px;
-            border-radius: 8px;
-            color: var(--text);
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #06b6d4;
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+        
+        .report-arrow {
+            color: #64748b;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .report-card:hover .report-arrow {
+            color: #06b6d4;
+            transform: translateX(4px);
+        }
+        
+        /* 文字版入口 */
+        .text-version {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(71, 85, 105, 0.3);
+        }
+        
+        .text-version h2 {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 16px;
+        }
+        
+        .text-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #64748b;
             text-decoration: none;
-            font-size: 0.9rem;
-            border: 1px solid rgba(255,255,255,0.1);
-            z-index: 100;
+            padding: 8px 16px;
+            background: rgba(30, 41, 59, 0.3);
+            border-radius: 8px;
+            transition: all 0.2s;
         }
         
-        .back-link:hover {
-            background: rgba(255,255,255,0.1);
+        .text-link:hover {
+            color: #06b6d4;
+            background: rgba(6, 182, 212, 0.1);
         }
         
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .stats { grid-template-columns: repeat(2, 1fr); }
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .report-card {
+                padding: 24px;
+            }
+            
+            .report-stats {
+                flex-wrap: wrap;
+                gap: 16px;
+            }
         }
     </style>
 </head>
 <body>
-    <a href="/" class="back-link">← 返回首页</a>
-    
-    <!-- Hero -->
-    <div class="hero">
+    <div class="report-page">
         <div class="container">
-            <h1>AI成本全景分析</h1>
-            <p>从算力采购到电力消耗，从人才薪资到数据标注，深度拆解AI应用背后的真实成本结构</p>
-        </div>
-    </div>
-    
-    <!-- Stats -->
-    <div class="stats">
-        <div class="stat-card">
-            <div class="stat-value text-red">$78M</div>
-            <div class="stat-label">GPT-4 训练成本</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-value text-green">99.5%</div>
-            <div class="stat-label">推理成本降幅(5年)</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-value text-yellow">945TWh</div>
-            <div class="stat-label">2030年预测耗电</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-value text-purple">$200万</div>
-            <div class="stat-label">AI科学家年薪</div>
-        </div>
-    </div>
-    
-    <!-- 全链条成本分析 -->
-    <div class="section">
-        <div class="container">
-            <h2>全链条成本分析</h2>
+            <div class="page-header">
+                <div class="gold-line"></div>
+                <h1>研究报告</h1>
+                <p>深度洞察，数据驱动，决策支持</p>
+            </div>
             
-            <img src="/assets/report/ai_cost_chain.png" alt="AI全链条成本结构" class="report-img">
+            <!-- 报告列表 -->
+            <div class="report-list">
+                <a href="/report/ai-cost-analysis.html" class="report-card">
+                    <div class="report-card-header">
+                        <div>
+                            <h3 class="report-title">AI成本全景分析</h3>
+                            <div class="report-meta">
+                                <span>📅 2025年3月</span>
+                                <span>⏱️ 约15分钟阅读</span>
+                            </div>
+                        </div>
+                        <span class="report-tag">深度研究</span>
+                    </div>
+                    <p class="report-desc">从算力采购到电力消耗，从人才薪资到数据标注，深度拆解AI应用背后的真实成本结构。涵盖训练成本、推理成本、人力成本、全链条成本分析及优化策略。</p>
+                    <div class="report-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">$78M</div>
+                            <div class="stat-label">GPT-4训练成本</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">99.5%</div>
+                            <div class="stat-label">推理成本降幅</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">945TWh</div>
+                            <div class="stat-label">2030预测耗电</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">→</div>
+                            <div class="stat-label">查看报告</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
             
-            <div class="grid-2">
-                <div class="card">
-                    <h3>💰 算力成本</h3>
-                    <p>GPU采购、服务器配置、高速网络——硬件投入是AI基础设施的最大头</p>
-                </div>
-                <div class="card">
-                    <h3>⚡ 电力成本</h3>
-                    <p>数据中心24/7运转，电力消耗占运营成本的30-40%</p>
-                </div>
-                <div class="card">
-                    <h3>👥 人力成本</h3>
-                    <p>AI研究员年薪$20-200万，优秀人才极度稀缺</p>
-                </div>
-                <div class="card">
-                    <h3>📊 数据成本</h3>
-                    <p>数据采集、标注、清洗，质量决定模型上限</p>
-                </div>
+            <!-- 文字版入口 -->
+            <div class="text-version">
+                <h2>📄 文字版报告</h2>
+                <a href="/report/ai-cost-analysis-text.html" class="text-link">
+                    <span>AI成本全景分析（文字版）</span>
+                    <span>→</span>
+                </a>
             </div>
         </div>
     </div>
-    
-    <!-- 训练成本 -->
-    <div class="section" style="background: var(--bg-secondary);">
-        <div class="container">
-            <h2>训练成本</h2>
-            
-            <div class="card">
-                <h3>主流模型训练成本对比</h3>
-                <div class="table-wrapper">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>模型</th>
-                                <th>训练成本</th>
-                                <th>GPU配置</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>GPT-4</td>
-                                <td class="text-red">~$78M</td>
-                                <td>~10000+ A100</td>
-                            </tr>
-                            <tr>
-                                <td>Gemini Ultra</td>
-                                <td class="text-red">~$191M</td>
-                                <td>~10000+ TPUv4</td>
-                            </tr>
-                            <tr>
-                                <td>DeepSeek-V3</td>
-                                <td class="text-green">~$6M</td>
-                                <td>2048 H800</td>
-                            </tr>
-                            <tr>
-                                <td>LLaMA 3 70B</td>
-                                <td class="text-yellow">~$50M</td>
-                                <td>~2000 H100</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p style="margin-top: 1rem; color: var(--cyan);">
-                    💡 关键洞察：DeepSeek-V3通过MoE架构和高效并行策略，将训练成本降至同类模型的1/10至1/18
-                </p>
-            </div>
-            
-            <img src="/assets/report/ai_cost_analysis.png" alt="训练成本与GPU价格" class="report-img">
-        </div>
-    </div>
-    
-    <!-- 推理成本 -->
-    <div class="section">
-        <div class="container">
-            <h2>推理成本</h2>
-            
-            <div class="card">
-                <h3>AI应用的"日常开销"</h3>
-                <p style="margin-bottom: 2rem;">每100万token的推理成本</p>
-                
-                <div class="table-wrapper">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>模型</th>
-                                <th>输入成本</th>
-                                <th>输出成本</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>GPT-4o</td>
-                                <td>$5.00</td>
-                                <td>$15.00</td>
-                            </tr>
-                            <tr>
-                                <td>Claude 3.5</td>
-                                <td>$3.00</td>
-                                <td>$15.00</td>
-                            </tr>
-                            <tr>
-                                <td>DeepSeek-V3</td>
-                                <td>$0.27</td>
-                                <td>$1.10</td>
-                            </tr>
-                            <tr>
-                                <td>GPT-4o-mini</td>
-                                <td>$0.15</td>
-                                <td>$0.60</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            
-            <img src="/assets/report/ai_cost_trends.png" alt="推理成本下降趋势" class="report-img">
-        </div>
-    </div>
-    
-    <!-- 成本优化策略 -->
-    <div class="section" style="background: var(--bg-secondary);">
-        <div class="container">
-            <h2>成本优化策略</h2>
-            
-            <div class="grid-2">
-                <div class="card">
-                    <h3>🏗️ 架构优化</h3>
-                    <p>MoE稀疏激活、KV缓存优化、批量处理的艺术</p>
-                </div>
-                <div class="card">
-                    <h3>⚙️ 系统优化</h3>
-                    <p>量化压缩、算子融合、自定义CUDA内核</p>
-                </div>
-                <div class="card">
-                    <h3>🌐 边缘部署</h3>
-                    <p>端侧推理减少带宽成本，本地化处理保护隐私</p>
-                </div>
-                <div class="card">
-                    <h3>📈 智能调度</h3>
-                    <p>动态扩缩容、闲时复用、按需分配算力</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- 未来趋势 -->
-    <div class="section">
-        <div class="container">
-            <h2>未来趋势</h2>
-            
-            <div class="card">
-                <h3>📉 成本持续下降</h3>
-                <p>推理成本5年下降99.5%，AI应用门槛持续降低</p>
-            </div>
-            
-            <div class="stat-card" style="margin: 2rem 0; text-align: left; padding: 32px;">
-                <h3 style="color: var(--cyan); margin-bottom: 1rem;">核心结论</h3>
-                <ul style="list-style: none; color: var(--text-muted);">
-                    <li style="margin-bottom: 12px;">1. 推理成本5年下降<span class="text-green font-bold">99.5%</span>，AI应用门槛持续降低</li>
-                    <li style="margin-bottom: 12px;">2. 算力需求爆发式增长，数据中心耗电将成为重要议题</li>
-                    <li style="margin-bottom: 12px;">3. 中国AI企业凭借效率和成本优势加速追赶</li>
-                    <li style="margin-bottom: 12px;">4. 深入理解AI全链条成本结构，制定适合自身阶段的成本策略</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Footer -->
-    <footer>
-        <p>数据来源：IEA、SemiAnalysis、OpenAI、DeepSeek等 | 报告日期：2025年3月</p>
-        <p style="margin-top: 1rem;"><a href="/">← 返回昊辰的星辰大海</a></p>
-    </footer>
 </body>
 </html>
