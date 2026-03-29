@@ -18,18 +18,16 @@
         {% endif %}
         
         <div class="navigation-wrapper">
-          <div>
-            <nav class="cover-navigation cover-navigation--primary">
-              <ul class="navigation">
-                {% for item in site.nav %}
-                  <li class="navigation__item"><a href="{{item.url}}" target="{{item.target | default: '_self'}}" title="{{item.description}}">{{item.title}}</a></li>
-                {% endfor %}
-              </ul>
-            </nav>
-          </div>
-          
-          <div>{% include social.html %}</div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation" style="display:flex;justify-content:center;gap:30px;list-style:none;padding:0;margin:0;">
+              {% for item in site.nav %}
+                <li class="navigation__item"><a href="{{item.url}}" target="{{item.target | default: '_self'}}" title="{{item.description}}">{{item.title}}</a></li>
+              {% endfor %}
+            </ul>
+          </nav>
         </div>
+        
+        <div>{% include social.html %}</div>
       </div>
     </div>
     
