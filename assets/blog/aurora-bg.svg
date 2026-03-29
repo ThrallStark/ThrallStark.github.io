@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8f4fd;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f8fafc;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="aurora1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#93c5fd;stop-opacity:0.25" />
+      <stop offset="50%" style="stop-color:#a5b4fc;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#c4b5fd;stop-opacity:0.2" />
+    </linearGradient>
+    <linearGradient id="aurora2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#67e8f9;stop-opacity:0.15" />
+      <stop offset="50%" style="stop-color:#6ee7b7;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#a5f3fc;stop-opacity:0.12" />
+    </linearGradient>
+    <linearGradient id="aurora3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f0abfc;stop-opacity:0.1" />
+      <stop offset="50%" style="stop-color:#ddd6fe;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#e0e7ff;stop-opacity:0.12" />
+    </linearGradient>
+    <filter id="blur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="80" />
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1920" height="1080" fill="url(#bg)" />
+  
+  <!-- 极光层 1 -->
+  <g filter="url(#blur)">
+    <ellipse cx="300" cy="400" rx="600" ry="300" fill="url(#aurora1)" />
+  </g>
+  
+  <!-- 极光层 2 -->
+  <g filter="url(#blur)">
+    <ellipse cx="1400" cy="300" rx="700" ry="250" fill="url(#aurora2)" />
+  </g>
+  
+  <!-- 极光层 3 -->
+  <g filter="url(#blur)">
+    <ellipse cx="960" cy="500" rx="800" ry="200" fill="url(#aurora3)" />
+  </g>
+  
+  <!-- 更淡的光斑 -->
+  <g filter="url(#blur)">
+    <ellipse cx="600" cy="600" rx="400" ry="150" fill="#93c5fd" fill-opacity="0.08" />
+    <ellipse cx="1300" cy="700" rx="350" ry="120" fill="#67e8f9" fill-opacity="0.06" />
+    <ellipse cx="960" cy="800" rx="500" ry="100" fill="#c4b5fd" fill-opacity="0.05" />
+  </g>
+</svg>
