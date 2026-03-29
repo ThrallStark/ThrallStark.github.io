@@ -13,7 +13,7 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: linear-gradient(135deg, #e8f0fe 0%, #f0f4f8 50%, #fafbfc 100%);
+            background: linear-gradient(135deg, #dbeafe 0%, #e0f2fe 30%, #f0f9ff 70%, #fafafa 100%);
             background-attachment: fixed;
             color: #1a1a1a;
             line-height: 1.6;
@@ -26,7 +26,7 @@
             position: relative;
         }
         
-        /* 科技感装饰 - 圆形光斑 */
+        /* 科技感装饰 */
         .blog-page::before {
             content: "";
             position: fixed;
@@ -34,7 +34,7 @@
             right: -200px;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(59, 130, 246, 0.02) 40%, transparent 70%);
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, rgba(59, 130, 246, 0.04) 40%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
         }
@@ -46,7 +46,7 @@
             left: -150px;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(201, 169, 98, 0.06) 0%, transparent 60%);
+            background: radial-gradient(circle, rgba(201, 169, 98, 0.1) 0%, transparent 60%);
             border-radius: 50%;
             pointer-events: none;
         }
@@ -92,7 +92,7 @@
             color: #333;
             margin-bottom: 24px;
             padding-bottom: 12px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
             display: flex;
             align-items: center;
             gap: 10px;
@@ -113,14 +113,14 @@
         
         .article-card {
             display: block;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(10px);
             border-radius: 12px;
             padding: 24px 28px;
             margin-bottom: 16px;
             text-decoration: none;
             transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.06);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
         
@@ -150,12 +150,12 @@
         
         /* 二维码区域 */
         .qr-section {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(10px);
             border-radius: 16px;
             padding: 40px;
             text-align: center;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.06);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
             position: relative;
             overflow: hidden;
