@@ -14,13 +14,14 @@ nav:
       description: 个人简介
       url: /profile/
       target: _self
+    - title: Blog
+      description: 博客文章
+      url: /blog/
+      target: _self
     - title: Report
       description: 研究报告
       url: /report/
       target: _self
-
-# blog_button disabled to avoid duplicate
-blog_button:
 
 # Pagination
 gems: [jekyll-paginate]
