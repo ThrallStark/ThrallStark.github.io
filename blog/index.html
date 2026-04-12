@@ -25,34 +25,51 @@
             margin: 0 auto;
         }
         
-        /* 返回首页按钮 - 针对Blog页面的背景优化 */
+        /* 返回首页按钮 - 统一尺寸，适配淡蓝背景 */
         .back-home-btn {
+            /* 固定尺寸 */
+            width: 120px;
+            height: 36px;
+            padding: 8px 16px;
+            box-sizing: border-box;
+            
+            /* 统一样式 */
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            border-radius: 20px;
+            
+            /* 布局 */
             position: fixed;
             top: 20px;
             left: 20px;
             z-index: 1000;
-            background: #0ea5e9; /* 蓝色按钮，与淡蓝背景形成对比 */
-            color: white;
-            border: none;
-            border-radius: 20px;
-            padding: 8px 16px;
-            font-size: 0.9rem;
-            font-weight: 500;
             text-decoration: none;
-            box-shadow: 0 2px 8px rgba(14, 165, 233, 0.3);
-            transition: all 0.3s ease;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 6px;
+            
+            /* 颜色适配淡蓝背景 */
+            background: #0ea5e9; /* 蓝色，与淡蓝背景形成对比 */
+            color: white;
+            border: none;
+            box-shadow: 0 2px 8px rgba(14, 165, 233, 0.3);
+            
+            /* 交互效果 */
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
+
+        .back-home-btn::before {
+            content: "←";
+            font-size: 16px;
+        }
+
         .back-home-btn:hover {
             background: #0284c7;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4);
-        }
-        .back-home-btn::before {
-            content: "←";
-            font-size: 1rem;
         }
         
         .page-header {
@@ -238,8 +255,10 @@
             .back-home-btn {
                 top: 10px;
                 left: 10px;
+                width: 100px;
+                height: 32px;
                 padding: 6px 12px;
-                font-size: 0.8rem;
+                font-size: 13px;
             }
         }
     </style>
