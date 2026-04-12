@@ -198,170 +198,59 @@ thead tr:last-child th {
     border-bottom: 1px solid $gray-light;
 }
 
-tbody tr:last-child td {border: none;}
-tbody td {
-    border-bottom: 1px solid $gray-light;
-    font-size: .85em;
-}
-
-td:last-child {
-  padding-right: 10px;
-}
-
-
-.date,
-.time,
-.author,
-.tags {
-  font-size: .8em;
-  color: darken($gray, 2%);
-
-  a {
-    color: $gray-darker;
-
-    &:hover {
-      color: $hover-color;
-    }
-
-  }
-
-}
-
-.excerpt {
-  margin: 0;
-  font-size: .9em;
-  color: $gray-dark;
-}
-
-.intro {
-  font-family: $serif-font;
-  font-size: 1.2em;
-  font-weight: lighter;
-  color: $gray-dark;
-}
-
-.block-heading {
-  @include column(12);
-  position: relative;
-  bottom: -15px;
-  font-size: .8em;
-  font-weight: bold;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.label {
-  position: relative;
-  display: inline-block;
-  padding: 8px 18px 9px 18px;
-  background: $primary-color;
-  border-radius: $border-radius;
-  text-align: center;
-  color: #FFF;
-}
-
-// ------------------------------
-// MAIN LAYOUT
-// ------------------------------
-
-.container {
-  position: relative;
-  z-index: 500;
-  width: $total-width - $gutter-width;
-  margin: 0 auto;
-}
-
-.content-wrapper {
-  z-index: 800;
-  width: 70%;
-  margin-left: 30%;
-}
-
-  .content-wrapper__inner {
-    margin: 0 10%;
-    padding: 50px 0;
-  }
-
-.footer {
-  display: block;
-  padding: 2em 0 0 0;
-  border-top: 2px solid $gray-light;
-  font-size: .7em;
-  color: lighten($gray-dark, 10%);
-}
-
-  .footer__copyright {
-    display: block;
-    margin-bottom: .7em;
-
-    a {
-      color: lighten($gray-dark, 5%);
-      text-decoration: underline;
-
-      &:hover {
-        color: $hover-color;
-      }
-
-    }
-
-  }
-
-// ------------------------------
-// AVATAR & LOGO
-// ------------------------------
-
-.avatar,
-.logo {
-  border-radius: 50%;
-  border: 3px solid #FFF;
-  box-shadow:0 0 1px 1px rgba(000,000,000,.3);
-}
-
-// ------------------------------
-// DIVIDERS
-// ------------------------------
-
-hr {
+td, th {
   border: none;
+  padding: 10px 15px;
 }
 
-.section-title__divider {
-  width: 30%;
-  margin: 2.2em 0 2.1em 0;
-  border-top: 1px solid $gray-light;
+tbody tr {
+  &:nth-child(even) {
+    background-color: lighten($primary-color, 40%);
+  }
 }
 
-// ------------------------------
-// MISC STYLES / HELPERS
-// ------------------------------
+// ======================
+// 智能和谐配色方案
+// ======================
+
+// 主标题样式 - 白色微光效果（最显著，适合深色背景）
+.panel-cover__title {
+  color: rgba(255, 255, 255, 0.98) !important;
+  font-weight: 700 !important;
+  text-shadow: 
+    0 1px 4px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(255, 255, 255, 0.25),
+    0 0 40px rgba(255, 255, 255, 0.15) !important;
+  font-size: 2.8em !important;
+  letter-spacing: 0.02em !important;
+  margin-bottom: 0.3em !important;
+}
+
+// 副标题样式 - 柔和的琥珀色/浅金色，与星空/夜景背景相协调
+.panel-cover__subtitle {
+  color: rgba(255, 215, 100, 0.88) !important; // 柔和的浅金色
+  font-weight: 600 !important;
+  font-size: 1.3em !important;
+  text-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.25),
+    0 0 15px rgba(255, 215, 100, 0.2) !important;
+  margin-top: 0.4em !important;
+  opacity: 0.92 !important;
+  letter-spacing: 0.01em !important;
+}
+
+// 描述样式 - 半透明白灰色，让背景图隐约可见，但不抢眼
+.panel-cover__description {
+  color: rgba(240, 240, 240, 0.75) !important;
+  font-size: 0.95em !important;
+  line-height: 1.65 !important;
+  opacity: 0.82 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45) !important;
+  max-width: 85% !important;
+  margin: 1.2em auto !important;
+  font-weight: 400 !important;
+}
 
 .hidden {
   display: none !important;
-}
-
-// 主标题样式 - 最显著
-.panel-cover__title {
-  color: $gray-darkest !important;
-  font-weight: 700 !important;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.15) !important;
-  font-size: 2.8em !important;
-}
-
-// 副标题样式 - 明显的颜色
-.panel-cover__subtitle {
-  color: $primary-color !important;
-  font-weight: 600 !important;
-  font-size: 1.3em !important;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
-  margin-top: 0.5em !important;
-  opacity: 1 !important;
-}
-
-// 描述样式 - 稍微弱些
-.panel-cover__description {
-  color: $gray-darker !important;
-  font-size: 0.95em !important;
-  line-height: 1.5 !important;
-  opacity: 0.85 !important;
 }
