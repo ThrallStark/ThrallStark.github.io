@@ -3,11 +3,60 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>刘昊辰 - 资深车联网产品经理</title>
+    <title>资深车联网产品经理</title>  <!-- 删除"刘昊辰" -->
     <script type="module" crossorigin="" src="./assets/index-Cj8vkcV3.js"></script>
     <link rel="stylesheet" crossorigin="" href="./assets/index-DsZLHQ96.css"/>
+    <style>
+        /* 返回首页按钮 - 针对Profile页面的浅灰背景优化 */
+        .back-home-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: #6b7280; /* 深灰色按钮，与浅灰背景形成良好对比 */
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(107, 114, 128, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .back-home-btn:hover {
+            background: #4b5563;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(107, 114, 128, 0.4);
+        }
+        .back-home-btn::before {
+            content: "←";
+            font-size: 1rem;
+        }
+        
+        /* 确保按钮在React应用上方 */
+        #root {
+            position: relative;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .back-home-btn {
+                top: 10px;
+                left: 10px;
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- 返回首页按钮 -->
+    <a href="https://thrallstark.site" class="back-home-btn">返回首页</a>
+    
     <div id="root"></div>
 </body>
 </html>
