@@ -80,77 +80,97 @@
     <div id="root"></div>
     
     <!-- 添加JavaScript来删除导航栏左上角的"刘昊辰" -->
+    
+    <!-- 改进的JavaScript：可靠删除导航栏左上角的"刘昊辰" -->
     <script>
-        // 等待页面加载完成后，删除导航栏左上角的"刘昊辰"
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('页面加载完成，准备删除导航栏的"刘昊辰"...');
+        (function() {
+            console.log('开始删除导航栏左上角的"刘昊辰"...');
             
-            // 延迟执行，确保React组件已渲染
-            setTimeout(function() {
-                // 查找导航栏中的"刘昊辰"元素
-                const navLinks = document.querySelectorAll('nav a, nav span, nav div, nav button');
-                let found = false;
+            // 多个策略来查找和删除
+            function findAndRemoveNavLiuHaochen() {
+                // 策略1: 查找左上角区域的"刘昊辰"
+                const allElements = document.querySelectorAll('*');
+                let foundElement = null;
                 
-                for (let element of navLinks) {
+                for (let element of allElements) {
                     if (element.textContent && element.textContent.trim() === '刘昊辰') {
-                        console.log('找到导航栏中的"刘昊辰":', element);
+                        const rect = element.getBoundingClientRect();
                         
-                        // 检查是否是导航栏左上角的元素（通常有logo或导航相关类名）
-                        const classList = element.className || '';
-                        const parentClass = element.parentElement ? element.parentElement.className || '' : '';
-                        
-                        // 检查是否是导航栏元素
-                        if (classList.includes('nav') || 
-                            classList.includes('logo') || 
-                            classList.includes('navbar') ||
-                            classList.includes('brand') ||
-                            parentClass.includes('nav') ||
-                            parentClass.includes('navbar') ||
-                            element.closest('nav') ||
-                            element.closest('header')) {
-                            
-                            console.log('确定是导航栏左上角的"刘昊辰"，准备删除...');
-                            
-                            // 删除元素
-                            if (element.parentElement) {
-                                element.parentElement.removeChild(element);
-                                found = true;
-                                console.log('导航栏的"刘昊辰"已删除');
-                                break;
-                            }
+                        // 检查是否在左上角区域
+                        if (rect.top < 100 && rect.left < 200) {
+                            console.log('找到左上角的"刘昊辰"元素:', element);
+                            foundElement = element;
+                            break;
                         }
                     }
                 }
                 
-                if (!found) {
-                    console.log('未找到导航栏左上角的"刘昊辰"，尝试其他查找方式...');
-                    
-                    // 另一种查找方式：查找所有包含"刘昊辰"的元素
-                    const allElements = document.querySelectorAll('*');
-                    for (let element of allElements) {
+                // 策略2: 查找导航栏相关的元素
+                if (!foundElement) {
+                    const navElements = document.querySelectorAll('nav *, header *, .navbar *, .nav *, [class*="nav"], [class*="header"]');
+                    for (let element of navElements) {
                         if (element.textContent && element.textContent.trim() === '刘昊辰') {
-                            console.log('找到"刘昊辰"元素:', element);
-                            console.log('元素路径:', element);
-                            
-                            // 检查位置：是否是左上角（第一个找到的通常就是）
-                            const rect = element.getBoundingClientRect();
-                            if (rect.top < 100 && rect.left < 200) { // 左上角区域
-                                console.log('元素在左上角区域，准备删除...');
-                                if (element.parentElement) {
-                                    element.parentElement.removeChild(element);
-                                    console.log('左上角的"刘昊辰"已删除');
-                                    break;
-                                }
-                            }
+                            console.log('找到导航栏的"刘昊辰"元素:', element);
+                            foundElement = element;
+                            break;
                         }
                     }
                 }
                 
-                if (!found) {
-                    console.log('未找到需要删除的"刘昊辰"元素，可能已被删除或结构不同');
+                // 策略3: 查找hover会变色的元素
+                if (!foundElement) {
+                    const allWithHover = document.querySelectorAll('[class*="hover"], [style*="hover"], :hover');
+                    for (let element of allWithHover) {
+                        if (element.textContent && element.textContent.includes('刘昊辰')) {
+                            console.log('找到可能hover变色的"刘昊辰"元素:', element);
+                            foundElement = element;
+                            break;
+                        }
+                    }
                 }
-            }, 2000); // 等待2秒确保React完全渲染
-        });
+                
+                // 删除找到的元素
+                if (foundElement && foundElement.parentElement) {
+                    try {
+                        foundElement.parentElement.removeChild(foundElement);
+                        console.log('✅ 成功删除导航栏左上角的"刘昊辰"');
+                        return true;
+                    } catch (e) {
+                        console.error('删除元素失败:', e);
+                    }
+                }
+                
+                return false;
+            }
+            
+            // 页面加载后立即执行
+            document.addEventListener('DOMContentLoaded', function() {
+                console.log('DOM已加载，开始查找...');
+                
+                // 初始尝试
+                if (!findAndRemoveNavLiuHaochen()) {
+                    console.log('初始查找未成功，等待React加载...');
+                    
+                    // 延迟多次尝试（React可能需要时间加载）
+                    const maxAttempts = 5;
+                    let attempts = 0;
+                    
+                    const interval = setInterval(function() {
+                        attempts++;
+                        console.log(`第${attempts}次尝试查找...`);
+                        
+                        if (findAndRemoveNavLiuHaochen()) {
+                            clearInterval(interval);
+                            console.log('✅ 最终成功删除"刘昊辰"');
+                        } else if (attempts >= maxAttempts) {
+                            clearInterval(interval);
+                            console.log('⚠️ 达到最大尝试次数，可能已删除或结构不同');
+                        }
+                    }, 1000); // 每秒尝试一次
+                }
+            });
+        })();
     </script>
+
 </body>
 </html>
