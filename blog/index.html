@@ -121,6 +121,11 @@
             color: #666;
             margin-bottom: 20px;
         }
+        .qr-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
         .qr-wrapper img {
             width: 160px;
             height: 160px;
@@ -132,7 +137,7 @@
             font-style: italic;
         }
         
-        /* 关注提示卡片 */
+        /* 关注提示卡片 - 添加个性小图标 */
         .tip-card {
             background: white;
             border: 1px solid rgba(14, 165, 233, 0.1);
@@ -140,7 +145,14 @@
         .tip-card h3 {
             color: #333;
             font-size: 1.1rem;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tip-card h3::before {
+            content: "⭐";
+            font-size: 1rem;
         }
         .feature-list {
             list-style: none;
@@ -149,15 +161,42 @@
         .feature-list li {
             color: #666;
             font-size: 0.85rem;
-            margin-bottom: 6px;
-            padding-left: 20px;
+            margin-bottom: 8px;
+            padding-left: 24px;
             position: relative;
+            display: flex;
+            align-items: center;
         }
         .feature-list li::before {
-            content: "✓";
+            content: "";
             position: absolute;
             left: 0;
-            color: #0ea5e9;
+            width: 18px;
+            height: 18px;
+            background: #0ea5e9;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        /* 为每个列表项设置不同的个性图标 */
+        .feature-list li:nth-child(1)::before {
+            content: "🔍";
+        }
+        .feature-list li:nth-child(2)::before {
+            content: "🚀";
+        }
+        .feature-list li:nth-child(3)::before {
+            content: "🚗";
+        }
+        .feature-list li:nth-child(4)::before {
+            content: "🤖";
+        }
+        .feature-list li:nth-child(5)::before {
+            content: "💡";
         }
         
         /* 响应式设计 */
