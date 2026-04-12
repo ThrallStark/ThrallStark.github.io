@@ -22,13 +22,13 @@
         
         .blog-page {
             min-height: 100vh;
-            padding: 60px 20px;
+            padding: 40px 20px;
             position: relative;
         }
 
         
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             position: relative;
         }
@@ -36,7 +36,7 @@
         /* 标题区域 */
         .page-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
         
         .page-header .gold-line {
@@ -48,11 +48,11 @@
         }
         
         .page-header h1 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 700;
             color: #1a1a1a;
             margin-bottom: 8px;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
         }
         
         .page-header p {
@@ -61,12 +61,29 @@
             letter-spacing: 1px;
         }
         
-        /* 热门文章标题 */
+        /* 主要内容区域 - 双栏布局 */
+        .main-content {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        /* 文章区域 */
+        .articles-column {
+            flex: 1;
+        }
+        
+        /* 二维码区域 */
+        .sidebar-column {
+            width: 320px;
+        }
+        
+        /* 板块标题 */
         .section-title {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: #333;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             
             display: flex;
             align-items: center;
@@ -83,15 +100,15 @@
         
         /* 文章卡片 */
         .articles-section {
-            margin-bottom: 60px;
+            margin-bottom: 30px;
         }
         
         .article-card {
             display: block;
-            background: rgba(255, 255, 255, 0.88);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(10px);
             border-radius: 12px;
-            padding: 24px 28px;
+            padding: 20px 24px;
             margin-bottom: 16px;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -100,16 +117,16 @@
         }
         
         .article-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(30, 136, 229, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30, 136, 229, 0.15);
             border-color: rgba(30, 136, 229, 0.2);
         }
         
         .article-card h3 {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: #1a1a1a;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             transition: color 0.3s ease;
             line-height: 1.4;
         }
@@ -120,19 +137,21 @@
         
         .article-card .source {
             font-size: 0.85rem;
-            color: #999;
+            color: #666;
+            line-height: 1.5;
         }
         
         /* 二维码区域 */
         .qr-section {
-            background: rgba(255, 255, 255, 0.88);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(10px);
             border-radius: 16px;
-            padding: 40px;
+            padding: 30px;
             text-align: center;
             border: 1px solid rgba(0, 0, 0, 0.06);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            position: relative;
+            position: sticky;
+            top: 40px;
             overflow: hidden;
         }
         
@@ -147,7 +166,7 @@
         }
         
         .qr-section h2 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 12px;
             color: #333;
@@ -155,8 +174,8 @@
         
         .qr-section p {
             color: #666;
-            margin-bottom: 24px;
-            font-size: 1rem;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
         }
         
         .qr-wrapper {
@@ -173,27 +192,47 @@
         }
         
         .qr-hint {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #888;
             font-style: italic;
         }
         
         /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .main-content {
+                gap: 30px;
+            }
+            
+            .sidebar-column {
+                width: 280px;
+            }
+        }
+        
         @media (max-width: 768px) {
             .blog-page {
-                padding: 40px 16px;
+                padding: 30px 16px;
             }
             
             .page-header h1 {
                 font-size: 1.8rem;
             }
             
+            .main-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .sidebar-column {
+                width: 100%;
+            }
+            
             .qr-section {
-                padding: 30px 20px;
+                position: static;
+                padding: 25px 20px;
             }
             
             .article-card {
-                padding: 20px;
+                padding: 18px 20px;
             }
             
             .qr-wrapper img {
@@ -202,54 +241,26 @@
             }
         }
         
-        /* 火焰线条背景 */
-        .flame-line {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                rgba(30, 136, 229, 0.4) 10%, 
-                rgba(30, 136, 229, 0.8) 30%, 
-                rgba(255, 215, 0, 0.8) 50%, 
-                rgba(30, 136, 229, 0.8) 70%, 
-                rgba(30, 136, 229, 0.4) 90%, 
-                transparent 100%);
-            z-index: -1;
-            animation: flameFlow 4s linear infinite;
-        }
-        
-        .flame-line:nth-child(2) { top: 20%; animation-delay: 0.5s; }
-        .flame-line:nth-child(3) { top: 40%; animation-delay: 1s; }
-        .flame-line:nth-child(4) { top: 60%; animation-delay: 1.5s; }
-        .flame-line:nth-child(5) { top: 80%; animation-delay: 2s; }
-        .flame-line:nth-child(6) { top: 90%; animation-delay: 2.5s; }
-        
-        .flame-dot {
-            position: fixed;
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: rgba(255, 215, 0, 0.6);
-            z-index: -1;
-            animation: flameFloat 6s ease-in-out infinite;
-        }
-        
-        .flame-dot:nth-child(1) { left: 10%; top: 30%; animation-delay: 0s; }
-        .flame-dot:nth-child(2) { left: 30%; top: 70%; animation-delay: 1s; }
-        .flame-dot:nth-child(3) { left: 70%; top: 40%; animation-delay: 2s; }
-        .flame-dot:nth-child(4) { left: 90%; top: 60%; animation-delay: 3s; }
-        
-        @keyframes flameFlow {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        
-        @keyframes flameFloat {
-            0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
-            50% { transform: translateY(-20px) scale(1.2); opacity: 0.8; }
+        @media (max-width: 480px) {
+            .blog-page {
+                padding: 25px 12px;
+            }
+            
+            .page-header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .article-card {
+                padding: 16px 18px;
+            }
+            
+            .article-card h3 {
+                font-size: 1rem;
+            }
+            
+            .qr-section {
+                padding: 20px 16px;
+            }
         }
     </style>
 </head>
@@ -263,55 +274,49 @@
                 <p>产品思考 · 行业洞察 · 技术解读</p>
             </div>
             
-            <!-- 最新文章 -->
-            <div class="articles-section">
-                <h2 class="section-title">最新文章</h2>
-                
-                <a href="https://mp.weixin.qq.com/s/HvMy3n0sq9C3wiQ4sPROqg" target="_blank" class="article-card">
-                    <h3>智能汽车AI算力竞赛：从芯片到场景的全新挑战</h3>
-                    <p class="source">微信公众号「昊辰的星辰大海」 - 随着自动驾驶和智能座舱的快速发展，AI算力已成为智能汽车竞争的核心要素，从芯片设计到场景应用都面临全新挑战</p>
-                </a>
-            </div>
-            
-            <!-- 热门文章 -->
-            <div class="articles-section">
-                <h2 class="section-title">热门文章</h2>
-                
-                <a href="https://mp.weixin.qq.com/s/_YXRH1MraNDvrPkfTKA5mA" target="_blank" class="article-card">
-                    <h3>舱驾融合到底是怎么回事儿</h3>
-                    <p class="source">微信公众号「昊辰的星辰大海」 - 舱驾融合是智能汽车发展的新趋势，它将智能座舱和自动驾驶系统深度整合，实现硬件共享、数据互通和体验统一</p>
-                </a>
-                
-                <a href="https://mp.weixin.qq.com/s/sIGEGxE16e-mOMrkYQD8Qg" target="_blank" class="article-card">
-                    <h3>豆包AI手机很火，但智能汽车可能跑在了前面</h3>
-                    <p class="source">微信公众号「昊辰的星辰大海」 - 虽然AI手机备受关注，但智能汽车在AI应用场景和商业化方面已经走在了前面，车端AI正在重塑出行体验</p>
-                </a>
-            </div>
-            
-            <!-- 二维码 -->
-            <div class="qr-section">
-                <h2>更多文章，请关注公众号查阅</h2>
-                <p>扫码关注「昊辰的星辰大海」，获取更多优质内容</p>
-                <div class="qr-wrapper">
-                    <img src="/assets/blog/qrcode.jpg" alt="微信公众号二维码">
+            <!-- 主要内容区域 -->
+            <div class="main-content">
+                <!-- 左侧：文章区域 -->
+                <div class="articles-column">
+                    <!-- 最新文章 -->
+                    <div class="articles-section">
+                        <h2 class="section-title">最新文章</h2>
+                        
+                        <a href="https://mp.weixin.qq.com/s/HvMy3n0sq9C3wiQ4sPROqg" target="_blank" class="article-card">
+                            <h3>智能汽车AI算力竞赛：从芯片到场景的全新挑战</h3>
+                            <p class="source">微信公众号「昊辰的星辰大海」 - 随着自动驾驶和智能座舱的快速发展，AI算力已成为智能汽车竞争的核心要素，从芯片设计到场景应用都面临全新挑战</p>
+                        </a>
+                    </div>
+                    
+                    <!-- 热门文章 -->
+                    <div class="articles-section">
+                        <h2 class="section-title">热门文章</h2>
+                        
+                        <a href="https://mp.weixin.qq.com/s/_YXRH1MraNDvrPkfTKA5mA" target="_blank" class="article-card">
+                            <h3>舱驾融合到底是怎么回事儿</h3>
+                            <p class="source">微信公众号「昊辰的星辰大海」 - 舱驾融合是智能汽车发展的新趋势，它将智能座舱和自动驾驶系统深度整合，实现硬件共享、数据互通和体验统一</p>
+                        </a>
+                        
+                        <a href="https://mp.weixin.qq.com/s/sIGEGxE16e-mOMrkYQD8Qg" target="_blank" class="article-card">
+                            <h3>豆包AI手机很火，但智能汽车可能跑在了前面</h3>
+                            <p class="source">微信公众号「昊辰的星辰大海」 - 虽然AI手机备受关注，但智能汽车在AI应用场景和商业化方面已经走在了前面，车端AI正在重塑出行体验</p>
+                        </a>
+                    </div>
                 </div>
-                <p class="qr-hint">长按识别二维码</p>
+                
+                <!-- 右侧：二维码区域 -->
+                <div class="sidebar-column">
+                    <div class="qr-section">
+                        <h2>更多文章，请关注公众号查阅</h2>
+                        <p>扫码关注「昊辰的星辰大海」，获取更多优质内容</p>
+                        <div class="qr-wrapper">
+                            <img src="/assets/blog/qrcode.jpg" alt="微信公众号二维码">
+                        </div>
+                        <p class="qr-hint">长按识别二维码</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div><div class="flame-line"></div>
-        <div class="flame-line"></div>
-        <div class="flame-line"></div>
-        <div class="flame-line"></div>
-        <div class="flame-line"></div>
-        <div class="flame-line"></div>
-        <div class="flame-line"></div>
-        <div class="flame-line"></div>
-        <div class="flame-line"></div>
-        <div class="flame-line"></div>
-        <div class="flame-line"></div>
-        <div class="flame-dot"></div>
-        <div class="flame-dot"></div>
-        <div class="flame-dot"></div>
-        <div class="flame-dot"></div>
+    </div>
 </body>
 </html>
