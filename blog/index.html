@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - 昊辰的星辰大海</title>
     <style>
-        /* 恢复截图中的原始背景：淡蓝渐变 */
+        /* 恢复原始版本的正确渐变：水平渐变，三色 */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);  /* 截图中的淡蓝渐变 */
+            background: linear-gradient(90deg, #0ea5e9, #38bdf8, #7dd3fc); /* 原始版本的水平三色渐变 */
             color: #1a1a1a;
             line-height: 1.6;
             min-height: 100vh;
@@ -29,15 +29,16 @@
         .page-header h1 {
             font-size: 2.2rem;
             font-weight: 700;
-            color: #1a1a1a;
+            color: white;  /* 白色标题，与渐变背景对比 */
             margin-bottom: 8px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         .page-header p {
-            color: #666;
+            color: rgba(255, 255, 255, 0.85);
             font-size: 1rem;
         }
         
-        /* 核心优化：双栏布局，但保持原有风格 */
+        /* 核心优化：双栏布局 */
         .main-content {
             display: flex;
             gap: 40px;
@@ -50,7 +51,7 @@
             gap: 20px;
         }
         
-        /* 保持截图中的样式 */
+        /* 保持原始样式 */
         .section-title {
             font-size: 1.2rem;
             font-weight: 600;
@@ -64,7 +65,7 @@
             content: "";
             width: 4px;
             height: 20px;
-            background: #2196f3;  /* 截图中的蓝色竖线 */
+            background: #2196f3;
             border-radius: 2px;
         }
         .articles-section {
@@ -72,19 +73,20 @@
         }
         .article-card {
             display: block;
-            background: white;
+            background: rgba(255, 255, 255, 0.95); /* 半透明白色，与渐变背景协调 */
             border-radius: 12px;
             padding: 22px 26px;
             margin-bottom: 16px;
             text-decoration: none;
             transition: all 0.3s ease;
-            border: 1px solid #e5e7eb;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.1);
         }
         .article-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(33, 150, 243, 0.15);
-            border-color: rgba(33, 150, 243, 0.2);
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.2);
+            border-color: rgba(14, 165, 233, 0.4);
+            background: rgba(255, 255, 255, 0.98);
         }
         .article-card h3 {
             font-size: 1.15rem;
@@ -98,13 +100,13 @@
             line-height: 1.5;
         }
         
-        /* 侧边栏卡片 - 根据截图调整 */
+        /* 侧边栏卡片 */
         .sidebar-card {
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 12px;
             padding: 24px;
-            border: 1px solid #e5e7eb;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.1);
         }
         .qr-card {
             position: sticky;
@@ -131,38 +133,51 @@
             font-style: italic;
         }
         
-        /* 关注提示卡片 - 根据截图添加 */
+        /* 关注提示卡片 */
         .tip-card {
-            background: #f8fafc;
-            border: 1px solid #e5e7eb;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
         .tip-card h3 {
             color: #333;
             font-size: 1.1rem;
             margin-bottom: 10px;
         }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
         .feature-list li {
             color: #666;
             font-size: 0.85rem;
             margin-bottom: 6px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #0ea5e9;
         }
         
         /* 响应式设计 */
         @media (max-width: 768px) {
             .main-content { flex-direction: column; }
+            .qr-card { position: static; }
         }
     </style>
 </head>
 <body>
     <div class="blog-page">
         <div class="container">
-            <!-- 标题 - 根据截图 -->
+            <!-- 标题 -->
             <div class="page-header">
                 <h1>Blog</h1>
                 <p>产品思考 · 行业洞察 · 技术解读</p>
             </div>
             
-            <!-- 核心优化：双栏布局，解决不协调问题 -->
+            <!-- 核心优化：双栏布局 -->
             <div class="main-content">
                 <!-- 左侧：文章区域 -->
                 <div class="articles-column">
@@ -190,7 +205,7 @@
                     </div>
                 </div>
                 
-                <!-- 右侧：侧边栏区域 - 解决不协调问题 -->
+                <!-- 右侧：侧边栏区域 - 优化为2个卡片解决不协调问题 -->
                 <div class="sidebar-column">
                     <!-- 微信公众号二维码卡片 -->
                     <div class="sidebar-card qr-card">
@@ -202,15 +217,15 @@
                         <p class="qr-hint">长按识别二维码</p>
                     </div>
                     
-                    <!-- 关注提示卡片 - 解决右侧太单薄问题 -->
+                    <!-- 关注提示卡片 - 解决右侧视觉单薄问题 -->
                     <div class="sidebar-card tip-card">
                         <h3>为什么关注公众号？</h3>
                         <ul class="feature-list">
-                            <li>🔍 深度行业分析</li>
-                            <li>💡 前沿技术解读</li>
-                            <li>🚗 智能汽车专题</li>
-                            <li>🤖 AI/机器人洞察</li>
-                            <li>📈 产品思考分享</li>
+                            <li>深度行业分析</li>
+                            <li>前沿技术解读</li>
+                            <li>智能汽车专题</li>
+                            <li>AI/机器人洞察</li>
+                            <li>产品思考分享</li>
                         </ul>
                     </div>
                 </div>
