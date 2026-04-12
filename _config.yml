@@ -1,25 +1,26 @@
 # Basic
-title: Thrall Leo
-subtitle: 萨尔的星辰大海
+title: 刘昊辰 - 产品思考与行业洞察
+subtitle: 智能汽车 · AI技术 · 产品创新
+author: 刘昊辰
 
 # Format
 highlighter: rouge
 
 # supported colors: blue, green, purple, red, orange or slate.
-cover_color: 
+cover_color:
 
 # Navigation
 nav:
-    - title: Profile
+    - title: 关于我
       description: 个人简介
       url: /profile/
       target: _self
-    - title: Blog
-      description: 博客文章
+    - title: 博客文章
+      description: 精选行业洞察
       url: /blog/
       target: _self
-    - title: Report
-      description: 研究报告
+    - title: 研究报告
+      description: 技术深度分析
       url: /report/
       target: _self
 
@@ -37,6 +38,12 @@ social:
     github: ThrallStark
     twitter: thrall_war
     mail: thrall.leo@gmail.com
+    wechat: # 可选：添加微信公众号
 
 # Google Analytics
 google analytics: UA-124595154-1
+# 注意：UA已过时，建议改用GA4，但保持兼容性
+
+# SEO优化
+description: 刘昊辰的个人网站，分享智能汽车、AI技术应用和产品创新的思考与实践
+keywords: 智能汽车,AI技术,产品创新,行业洞察,刘昊辰
