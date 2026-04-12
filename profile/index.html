@@ -3,38 +3,56 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>资深车联网产品经理</title>  <!-- 删除"刘昊辰" -->
+    <!-- 恢复原始标题 -->
+    <title>刘昊辰 - 资深车联网产品经理</title>
     <script type="module" crossorigin="" src="./assets/index-Cj8vkcV3.js"></script>
     <link rel="stylesheet" crossorigin="" href="./assets/index-DsZLHQ96.css"/>
     <style>
-        /* 返回首页按钮 - 针对Profile页面的浅灰背景优化 */
+        /* 返回首页按钮 - 统一尺寸，适配浅灰背景 */
         .back-home-btn {
+            /* 固定尺寸 */
+            width: 120px;
+            height: 36px;
+            padding: 8px 16px;
+            box-sizing: border-box;
+            
+            /* 统一样式 */
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            border-radius: 20px;
+            
+            /* 布局 */
             position: fixed;
             top: 20px;
             left: 20px;
             z-index: 1000;
-            background: #6b7280; /* 深灰色按钮，与浅灰背景形成良好对比 */
-            color: white;
-            border: none;
-            border-radius: 20px;
-            padding: 8px 16px;
-            font-size: 0.9rem;
-            font-weight: 500;
             text-decoration: none;
-            box-shadow: 0 2px 8px rgba(107, 114, 128, 0.3);
-            transition: all 0.3s ease;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 6px;
+            
+            /* 颜色适配浅灰背景 */
+            background: #6b7280; /* 深灰色，与浅灰背景形成良好对比 */
+            color: white;
+            border: none;
+            box-shadow: 0 2px 8px rgba(107, 114, 128, 0.3);
+            
+            /* 交互效果 */
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
+
+        .back-home-btn::before {
+            content: "←";
+            font-size: 16px;
+        }
+
         .back-home-btn:hover {
             background: #4b5563;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(107, 114, 128, 0.4);
-        }
-        .back-home-btn::before {
-            content: "←";
-            font-size: 1rem;
         }
         
         /* 确保按钮在React应用上方 */
@@ -47,8 +65,10 @@
             .back-home-btn {
                 top: 10px;
                 left: 10px;
+                width: 100px;
+                height: 32px;
                 padding: 6px 12px;
-                font-size: 0.8rem;
+                font-size: 13px;
             }
         }
     </style>
@@ -58,5 +78,79 @@
     <a href="https://thrallstark.site" class="back-home-btn">返回首页</a>
     
     <div id="root"></div>
+    
+    <!-- 添加JavaScript来删除导航栏左上角的"刘昊辰" -->
+    <script>
+        // 等待页面加载完成后，删除导航栏左上角的"刘昊辰"
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('页面加载完成，准备删除导航栏的"刘昊辰"...');
+            
+            // 延迟执行，确保React组件已渲染
+            setTimeout(function() {
+                // 查找导航栏中的"刘昊辰"元素
+                const navLinks = document.querySelectorAll('nav a, nav span, nav div, nav button');
+                let found = false;
+                
+                for (let element of navLinks) {
+                    if (element.textContent && element.textContent.trim() === '刘昊辰') {
+                        console.log('找到导航栏中的"刘昊辰":', element);
+                        
+                        // 检查是否是导航栏左上角的元素（通常有logo或导航相关类名）
+                        const classList = element.className || '';
+                        const parentClass = element.parentElement ? element.parentElement.className || '' : '';
+                        
+                        // 检查是否是导航栏元素
+                        if (classList.includes('nav') || 
+                            classList.includes('logo') || 
+                            classList.includes('navbar') ||
+                            classList.includes('brand') ||
+                            parentClass.includes('nav') ||
+                            parentClass.includes('navbar') ||
+                            element.closest('nav') ||
+                            element.closest('header')) {
+                            
+                            console.log('确定是导航栏左上角的"刘昊辰"，准备删除...');
+                            
+                            // 删除元素
+                            if (element.parentElement) {
+                                element.parentElement.removeChild(element);
+                                found = true;
+                                console.log('导航栏的"刘昊辰"已删除');
+                                break;
+                            }
+                        }
+                    }
+                }
+                
+                if (!found) {
+                    console.log('未找到导航栏左上角的"刘昊辰"，尝试其他查找方式...');
+                    
+                    // 另一种查找方式：查找所有包含"刘昊辰"的元素
+                    const allElements = document.querySelectorAll('*');
+                    for (let element of allElements) {
+                        if (element.textContent && element.textContent.trim() === '刘昊辰') {
+                            console.log('找到"刘昊辰"元素:', element);
+                            console.log('元素路径:', element);
+                            
+                            // 检查位置：是否是左上角（第一个找到的通常就是）
+                            const rect = element.getBoundingClientRect();
+                            if (rect.top < 100 && rect.left < 200) { // 左上角区域
+                                console.log('元素在左上角区域，准备删除...');
+                                if (element.parentElement) {
+                                    element.parentElement.removeChild(element);
+                                    console.log('左上角的"刘昊辰"已删除');
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                if (!found) {
+                    console.log('未找到需要删除的"刘昊辰"元素，可能已被删除或结构不同');
+                }
+            }, 2000); // 等待2秒确保React完全渲染
+        });
+    </script>
 </body>
 </html>
