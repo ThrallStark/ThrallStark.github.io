@@ -10,9 +10,9 @@
             --cyan: #06b6d4;
             --purple: #8b5cf6;
         }
-
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
@@ -20,6 +20,159 @@
             color: #e2e8f0;
         }
         
+        .report-page {
+            min-height: 100vh;
+            padding: 100px 24px 60px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .gold-line {
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #06b6d4, #8b5cf6);
+            margin: 0 auto 16px;
+            border-radius: 2px;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 12px;
+        }
+        
+        .page-header p {
+            color: #64748b;
+            font-size: 1rem;
+        }
+        
+        .report-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(71, 85, 105, 0.3);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
+            display: block;
+            text-decoration: none;
+        }
+        
+        .report-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(6, 182, 212, 0.5);
+            box-shadow: 0 12px 40px rgba(6, 182, 212, 0.15);
+        }
+        
+        .report-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+        
+        .report-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 8px;
+        }
+        
+        .report-card:hover .report-title { color: #06b6d4; }
+        
+        .report-meta {
+            display: flex;
+            gap: 16px;
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+        
+        .report-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(6, 182, 212, 0.2);
+            color: #06b6d4;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+        }
+        
+        .report-tag.green {
+            background: rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+        }
+        
+        .report-tag.purple {
+            background: rgba(168, 85, 247, 0.2);
+            color: #c084fc;
+        }
+        
+        .report-desc {
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        
+        .report-stats {
+            display: flex;
+            gap: 24px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(71, 85, 105, 0.3);
+        }
+        
+        .stat-item { text-align: center; }
+        .stat-value { font-size: 1.2rem; font-weight: 700; color: #06b6d4; }
+        .stat-label { font-size: 0.75rem; color: #64748b; }
+        
+        .text-version {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(71, 85, 105, 0.3);
+        }
+        
+        .text-version h2 {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 16px;
+        }
+        
+        .text-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .text-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #64748b;
+            text-decoration: none;
+            padding: 8px 16px;
+            background: rgba(30, 41, 59, 0.3);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        
+        .text-link:hover {
+            color: #06b6d4;
+            background: rgba(6, 182, 212, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 1.8rem; }
+            .report-card { padding: 24px; }
+            .report-stats { flex-wrap: wrap; gap: 16px; }
+        }
+    
         /* 返回首页按钮 - 统一尺寸，适配深色背景 */
         .back-home-btn {
             /* 固定尺寸 */
@@ -67,112 +220,6 @@
             box-shadow: 0 4px 12px rgba(6, 182, 212, 0.6);
         }
         
-        .report-page {
-            min-height: 100vh;
-            padding: 100px 24px 60px;
-            position: relative;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .page-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .gold-line {
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(90deg, #06b6d4, #8b5cf6);
-            margin: 0 auto 16px;
-            border-radius: 2px;
-        }
-        
-        .page-header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 12px;
-        }
-        
-        .page-header p {
-            color: #64748b;
-            font-size: 1rem;
-        }
-        
-        .report-card {
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid rgba(71, 85, 105, 0.3);
-            border-radius: 16px;
-            padding: 32px;
-            margin-bottom: 24px;
-            transition: all 0.3s ease;
-            display: block;
-            text-decoration: none;
-        }
-        
-        .report-card:hover {
-            transform: translateY(-4px);
-            background: rgba(30, 41, 59, 0.7);
-            border-color: rgba(100, 116, 139, 0.5);
-            box-shadow: 0 8px 24px rgba(6, 182, 212, 0.2);
-        }
-        
-        .report-card h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .report-card .icon {
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .report-card p {
-            color: #94a3b8;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        
-        .report-list {
-            margin-top: 40px;
-        }
-        
-        .report-section h2 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .report-section h2::before {
-            content: "";
-            width: 4px;
-            height: 20px;
-            background: linear-gradient(90deg, #06b6d4, #8b5cf6);
-            border-radius: 2px;
-        }
-        
-        .report-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
         /* 响应式调整 */
         @media (max-width: 768px) {
             .back-home-btn {
@@ -184,86 +231,98 @@
                 font-size: 13px;
             }
         }
-        
-        @media (max-width: 640px) {
-            .report-page { padding: 80px 16px 40px; }
-            .page-header h1 { font-size: 2rem; }
-            .report-card { padding: 24px; }
-        }
-    </style>
+</style>
 </head>
 <body>
     <!-- 返回首页按钮 -->
     <a href="https://thrallstark.site" class="back-home-btn">返回首页</a>
-    
     <div class="report-page">
         <div class="container">
             <div class="page-header">
                 <div class="gold-line"></div>
                 <h1>研究报告</h1>
-                <p>深度洞察 · 数据驱动 · 行业前瞻</p>
+                <p>深度洞察，数据驱动，决策支持</p>
             </div>
-
-            <div class="report-list">
-                <div class="report-section">
-                    <h2>行业研究</h2>
-                    <div class="report-grid">
-                        <!-- 原始内容保持不变 -->
-                        <a href="https://mp.weixin.qq.com/s/q1LFQx7NJQfQw8sQnQud1g" target="_blank" class="report-card">
-                            <h3><div class="icon">📊</div>智能汽车 2024 下半年市场趋势报告</h3>
-                            <p>基于 2024 年 H1 销量数据、重点企业财报、头部玩家策略，系统分析下半年智能汽车市场走势，涵盖技术路线、竞争格局、用户偏好等维度。</p>
-                        </a>
-                        
-                        <a href="https://mp.weixin.qq.com/s/y7L2Yq9Qz7BOJfJGAHraNw" target="_blank" class="report-card">
-                            <h3><div class="icon">🚗</div>舱驾融合技术路径分析</h3>
-                            <p>梳理舱驾融合的技术演进路径，对比不同车企的技术方案，分析硬件架构、软件平台、数据融合等关键环节的实现难点与解决方案。</p>
-                        </a>
-                        
-                        <a href="https://mp.weixin.qq.com/s/2MaQgyw_7CAJ7n2qHhN8og" target="_blank" class="report-card">
-                            <h3><div class="icon">⚡</div>800V 高压平台普及率预测</h3>
-                            <p>结合充电基础设施布局、电池成本下降曲线、车企产品规划，预测 800V 高压平台在未来三年的市场渗透率，并分析其对产业链的影响。</p>
-                        </a>
+            
+            <!-- 报告1: AI成本全景分析 -->
+            <a href="/report/ai-cost-analysis.html" class="report-card">
+                <div class="report-card-header">
+                    <div>
+                        <h3 class="report-title">AI成本全景分析</h3>
+                        <div class="report-meta">
+                            <span>📅 2025年3月</span>
+                            <span>⏱️ 约15分钟阅读</span>
+                        </div>
                     </div>
+                    <span class="report-tag">深度研究</span>
                 </div>
-                
-                <div class="report-section">
-                    <h2>技术洞察</h2>
-                    <div class="report-grid">
-                        <a href="https://mp.weixin.qq.com/s/2YQhpQ-mQlQEqQJQrQrQrQ" target="_blank" class="report-card">
-                            <h3><div class="icon">🧠</div>大模型在车端的应用现状与挑战</h3>
-                            <p>分析大模型在智能座舱、自动驾驶、车云协同等场景的应用案例，探讨算力需求、数据安全、实时性等关键技术挑战。</p>
-                        </a>
-                        
-                        <a href="https://mp.weixin.qq.com/s/3ZRpQqQqQqQqQqQqQqQqQ" target="_blank" class="report-card">
-                            <h3><div class="icon">🛡️</div>车联网安全威胁与防御体系</h3>
-                            <p>梳理车联网面临的主要安全威胁（如远程控制、数据窃取、系统篡改等），提出多层次防御体系架构，包括硬件安全、通信加密、入侵检测等。</p>
-                        </a>
-                        
-                        <a href="https://mp.weixin.qq.com/s/4aSqQqQqQqQqQqQqQqQqQ" target="_blank" class="report-card">
-                            <h3><div class="icon">🔋</div>固态电池产业化进展评估</h3>
-                            <p>跟踪国内外固态电池技术进展，分析量产时间表、成本曲线、性能指标，评估其对电动汽车行业格局的潜在影响。</p>
-                        </a>
-                    </div>
+                <p class="report-desc">从算力采购到电力消耗，从人才薪资到数据标注，深度拆解AI应用背后的真实成本结构。涵盖训练成本、推理成本、人力成本、全链条成本分析及优化策略。</p>
+                <div class="report-stats">
+                    <div class="stat-item"><div class="stat-value">$78M</div><div class="stat-label">GPT-4训练成本</div></div>
+                    <div class="stat-item"><div class="stat-value">99.5%</div><div class="stat-label">推理成本降幅</div></div>
+                    <div class="stat-item"><div class="stat-value">945TWh</div><div class="stat-label">2030预测耗电</div></div>
+                    <div class="stat-item"><div class="stat-value">→</div><div class="stat-label">查看报告</div></div>
                 </div>
-                
-                <div class="report-section">
-                    <h2>市场分析</h2>
-                    <div class="report-grid">
-                        <a href="https://mp.weixin.qq.com/s/5bQqQqQqQqQqQqQqQqQqQ" target="_blank" class="report-card">
-                            <h3><div class="icon">🌍</div>海外市场进入策略研究</h3>
-                            <p>针对欧洲、东南亚、中东等关键海外市场，分析政策环境、竞争格局、用户偏好，为中国智能汽车企业出海提供策略建议。</p>
-                        </a>
-                        
-                        <a href="https://mp.weixin.qq.com/s/6cQqQqQqQqQqQqQqQqQqQ" target="_blank" class="report-card">
-                            <h3><div class="icon">💰</div>智能汽车产业链投资机会</h3>
-                            <p>梳理智能汽车产业链各环节的投资价值，重点关注芯片、传感器、软件定义汽车、充电服务等领域的创新企业与技术趋势。</p>
-                        </a>
-                        
-                        <a href="https://mp.weixin.qq.com/s/7dQqQqQqQqQqQqQqQqQqQ" target="_blank" class="report-card">
-                            <h3><div class="icon">👥</div>用户购车决策因素变化趋势</h3>
-                            <p>基于用户调研数据，分析智能汽车用户购车决策因素的变化趋势，探讨智能化配置、品牌认知、服务体验等维度的权重演变。</p>
-                        </a>
+            </a>
+            
+            <!-- 报告2: 杭州AI机器人公司分析 -->
+            <a href="/report/杭州AI机器人公司分析.html" class="report-card">
+                <div class="report-card-header">
+                    <div>
+                        <h3 class="report-title">杭州AI机器人公司分析</h3>
+                        <div class="report-meta">
+                            <span>📅 2026年</span>
+                            <span>⏱️ 约20分钟阅读</span>
+                        </div>
                     </div>
+                    <span class="report-tag purple">公司研究</span>
+                </div>
+                <p class="report-desc">深度剖析杭州AI机器人产业链，涵盖具身智能、工业机器人、服务机器人等重点领域。分析头部企业技术布局、市场竞争格局及未来发展趋势。</p>
+                <div class="report-stats">
+                    <div class="stat-item"><div class="stat-value">15+</div><div class="stat-label">重点公司</div></div>
+                    <div class="stat-item"><div class="stat-value">具身智能</div><div class="stat-label">核心赛道</div></div>
+                    <div class="stat-item"><div class="stat-value">全产业链</div><div class="stat-label">覆盖范围</div></div>
+                    <div class="stat-item"><div class="stat-value">→</div><div class="stat-label">查看报告</div></div>
+                </div>
+            </a>
+            
+            <!-- 报告3: 新能源汽车2026趋势分析 -->
+            <a href="/report/新能源汽车2026趋势分析.html" class="report-card">
+                <div class="report-card-header">
+                    <div>
+                        <h3 class="report-title">新能源汽车2026趋势分析</h3>
+                        <div class="report-meta">
+                            <span>📅 2026年</span>
+                            <span>⏱️ 约15分钟阅读</span>
+                        </div>
+                    </div>
+                    <span class="report-tag green">行业趋势</span>
+                </div>
+                <p class="report-desc">展望2026年新能源汽车行业发展趋势，分析技术创新、市场竞争、政策变化对行业格局的影响。涵盖电动化、智能化、全球化三大主线。</p>
+                <div class="report-stats">
+                    <div class="stat-item"><div class="stat-value">2026</div><div class="stat-label">预测年份</div></div>
+                    <div class="stat-item"><div class="stat-value">3大</div><div class="stat-label">主线方向</div></div>
+                    <div class="stat-item"><div class="stat-value">全景</div><div class="stat-label">覆盖范围</div></div>
+                    <div class="stat-item"><div class="stat-value">→</div><div class="stat-label">查看报告</div></div>
+                </div>
+            </a>
+            
+            <!-- 文字版入口 -->
+            <div class="text-version">
+                <h2>📄 文字版报告</h2>
+                <div class="text-links">
+                    <a href="/report/ai-cost-analysis.html" class="text-link">
+                        <span>AI成本全景分析</span>
+                        <span>→</span>
+                    </a>
+                    <a href="/report/杭州AI机器人公司分析_文字版.md" class="text-link">
+                        <span>杭州AI机器人公司分析</span>
+                        <span>→</span>
+                    </a>
+                    <a href="/report/新能源汽车2026趋势分析_文字版.md" class="text-link">
+                        <span>新能源汽车2026趋势分析</span>
+                        <span>→</span>
+                    </a>
                 </div>
             </div>
         </div>
