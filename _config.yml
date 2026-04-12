@@ -1,6 +1,6 @@
 # Basic
 title: 刘昊辰 - 产品思考与行业洞察
-subtitle: 智能汽车 · AI技术 · 产品创新
+subtitle: 昊辰的星辰大海 - 智能汽车/机器人/AI/智能硬件
 author: 刘昊辰
 
 # Format
@@ -11,16 +11,16 @@ cover_color:
 
 # Navigation
 nav:
-    - title: 关于我
+    - title: Profile
       description: 个人简介
       url: /profile/
       target: _self
-    - title: 博客文章
-      description: 精选行业洞察
+    - title: Blog
+      description: 博客文章
       url: /blog/
       target: _self
-    - title: 研究报告
-      description: 技术深度分析
+    - title: Report
+      description: 研究报告
       url: /report/
       target: _self
 
@@ -45,5 +45,5 @@ google analytics: UA-124595154-1
 # 注意：UA已过时，建议改用GA4，但保持兼容性
 
 # SEO优化
-description: 刘昊辰的个人网站，分享智能汽车、AI技术应用和产品创新的思考与实践
-keywords: 智能汽车,AI技术,产品创新,行业洞察,刘昊辰
+description: 刘昊辰的个人网站，分享智能汽车、机器人、AI技术、智能硬件等前沿科技领域的行业洞察、产品思考和实践经验。
+keywords: 刘昊辰,智能汽车,机器人,AI人工智能,智能硬件,产品经理,行业洞察,技术分享,车联网,自动驾驶
