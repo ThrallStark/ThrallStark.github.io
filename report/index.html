@@ -15,13 +15,8 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: linear-gradient(180deg, 
-                #0f172a 0%,      /* 顶部颜色（保持原有） */
-                #0d1425 25%,     /* 平滑过渡色1 - 轻微加深 */
-                #0a1120 50%,     /* 平滑过渡色2 - 继续加深 */
-                #070d1b 75%,     /* 平滑过渡色3 - 接近底部颜色 */
-                #020617 100%     /* 底部颜色（保持原有） */
-            );
+            background: linear-gradient(135deg, #0f172a 0%, #0c1427 30%, #081021 70%, #020617 100%);
+            background-attachment: fixed;
             min-height: 100vh;
             color: #e2e8f0;
         }
@@ -140,7 +135,7 @@
         .text-version {
             margin-top: 40px;
             padding-top: 40px;
-            border-top: 1px solid rgba(71, 85, 105, 0.3);
+            border-top: 1px solid rgba(71, 85, 105, 0.05); /* 进一步降低透明度，几乎看不见 */
         }
         
         .text-version h2 {
