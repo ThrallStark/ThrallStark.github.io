@@ -45,8 +45,8 @@ social:
 # 如需配置 GA4 Measurement ID，请通过 GTM 后台或在此处配置：
 # ga4_measurement_id: G-XXXXXXXXXX
 
-# 百度统计 (请替换为实际的站点 ID)
-# baidu_tongji: YOUR_BAIDU_ID_HERE
+# 百度统计
+baidu_tongji: 480ad114e0784d0f507c6fbfe3449cb2
 
 # SEO优化
 description: 刘昊辰的个人网站，分享智能汽车、机器人、AI技术、智能硬件等前沿科技领域的行业洞察、产品思考和实践经验。
