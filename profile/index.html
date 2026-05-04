@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- 防闪烁：预设背景色 + 初始隐藏内容，等加载完成后淡入 -->
+    <style>
+        html, body { background-color: #f5f5f5; }
+        #root { opacity: 0; transition: opacity 0.3s ease; }
+        .app-ready #root { opacity: 1; }
+    </style>
+    <noscript><style>#root { opacity: 1 !important; }</style></noscript>
     <!-- 恢复原始标题 -->
     <title>刘昊辰 - 资深车联网产品经理</title>
     <!-- Baidu Tongji -->
@@ -128,6 +135,27 @@
             setTimeout(function() {
                 observer.disconnect();
             }, 10000);
+        })();
+    </script>
+
+    <!-- 防闪烁：等字体和关键资源加载完成后再淡入显示 -->
+    <script>
+        (function() {
+            function showApp() {
+                document.documentElement.classList.add('app-ready');
+            }
+            // 等待字体加载 + 页面 load 事件
+            var promises = [];
+            if (document.fonts && document.fonts.ready) {
+                promises.push(document.fonts.ready);
+            }
+            promises.push(new Promise(function(resolve) {
+                if (document.readyState === 'complete') resolve();
+                else window.addEventListener('load', resolve);
+            }));
+            Promise.all(promises).then(showApp);
+            // 兜底：最长 1.5 秒后强制显示，避免网络极差时白屏太久
+            setTimeout(showApp, 1500);
         })();
     </script>
 
