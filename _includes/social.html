@@ -5,7 +5,7 @@
   <!-- Weibo -->
   <li class="navigation__item">
     <a href="http://weibo.com/{{site.social.weibo}}" title="@{{site.social.weibo}} 的微博" target="_blank">
-      <i class='social fa fa-weibo'></i>
+      <i class='social fab fa-weibo'></i>
       <span class="label">Weibo</span>
     </a>
   </li>
@@ -15,27 +15,17 @@
   <!-- Github -->
   <li class="navigation__item">
     <a href="https://github.com/{{site.social.github}}" title="@{{site.social.github}} 的 Github" target="_blank">
-      <i class='social fa fa-github'></i>
+      <i class='social fab fa-github'></i>
       <span class="label">Github</span>
     </a>
   </li>
   {% endif %}
 
-  {% if site.social.gplus %}
-  <!-- Google Plus -->
-  <li class="navigation__item">
-    <a href="https://plus.google.com/{{site.social.gplus}}" rel="author" title="Google+" target="_blank">
-      <i class='social fa fa-google-plus-square'></i>
-      <span class="label">Google Plus</span>
-    </a>
-  </li>
-  {% endif %}
-
   {% if site.social.mail %}
-  <!-- Email - 更新为126邮箱 -->
+  <!-- Email -->
   <li class="navigation__item">
     <a href="mailto:liuhaochenkunlun@126.com" title="联系我">
-      <i class='social fa fa-envelope'></i>
+      <i class='social fas fa-envelope'></i>
       <span class="label">Email</span>
     </a>
   </li>
