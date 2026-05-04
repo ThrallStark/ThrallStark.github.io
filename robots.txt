@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thrallstark.site/sitemap.xml
