@@ -25,7 +25,8 @@ nav:
       target: _self
 
 # Pagination
-gems: [jekyll-paginate]
+plugins:
+  - jekyll-paginate
 paginate: 10
 paginate_path: "page/:num/"
 
@@ -40,9 +41,12 @@ social:
     mail: liuhaochenkunlun@126.com
     wechat: # 可选：添加微信公众号
 
-# Google Analytics
-google analytics: UA-124595154-1
-# 注意：UA已过时，建议改用GA4，但保持兼容性
+# Google Analytics (已迁移至 GTM 容器管理，UA 已停用)
+# 如需配置 GA4 Measurement ID，请通过 GTM 后台或在此处配置：
+# ga4_measurement_id: G-XXXXXXXXXX
+
+# 百度统计 (请替换为实际的站点 ID)
+# baidu_tongji: YOUR_BAIDU_ID_HERE
 
 # SEO优化
 description: 刘昊辰的个人网站，分享智能汽车、机器人、AI技术、智能硬件等前沿科技领域的行业洞察、产品思考和实践经验。
