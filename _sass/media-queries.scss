@@ -43,7 +43,7 @@
 @media all and (max-width: 960px) {
 
   .btn-mobile-menu {
-    display: block;
+    display: none;
   }
 
   .panel-main {
@@ -107,15 +107,11 @@
   }
 
     .navigation-wrapper {
-      display: none;
-      position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
-      width: 100%;
-      padding: 20px 0;
-      background: rgba($gray-darkest,.98);
-      border-bottom: 1px solid rgba(255,255,255,.15);
+      display: block;
+      position: static;
+      padding: 10px 0;
+      background: transparent;
+      border: none;
 
       &.visible {
         display: block;
@@ -130,12 +126,16 @@
       width: 100%;
 
       .navigation {
-        display: block;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 6px 16px;
         width: 100%;
 
         li {
-          width: 80%;
-          margin-bottom: .4em;
+          display: inline-block;
+          width: auto;
+          margin-bottom: 0;
         }
 
       }
@@ -168,8 +168,8 @@
     }
 
     .navigation__item {
-      width: 100%;
-      margin: 0 0 .4em 0;
+      width: auto;
+      margin: 0;
     }
 
 }
