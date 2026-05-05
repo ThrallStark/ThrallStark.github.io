@@ -30,10 +30,6 @@ plugins:
 paginate: 10
 paginate_path: "page/:num/"
 
-# Comment
-comment:
-    disqus: thrallstark
-
 # Social
 social:
     github: ThrallStark
