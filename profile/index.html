@@ -8,6 +8,20 @@
         html, body { background-color: #f5f5f5; }
         #root { opacity: 0; transition: opacity 0.3s ease; }
         .app-ready #root { opacity: 1; }
+        /* 移动端导航面板：移除毛玻璃，背景完全不透明，避免与背景内容混淆 */
+        @media (max-width: 767px) {
+            [class*="top-\[70px\]"][class*="backdrop-blur-md"] {
+                background-color: #f5f5f5 !important;
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                border-bottom: 1px solid rgba(0,0,0,0.08) !important;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
+            }
+            [class*="top-\[70px\]"] a {
+                color: #1a1a1a !important;
+                font-weight: 500 !important;
+            }
+        }
     </style>
     <noscript><style>#root { opacity: 1 !important; }</style></noscript>
     <!-- 恢复原始标题 -->
