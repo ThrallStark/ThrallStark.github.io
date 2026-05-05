@@ -211,12 +211,31 @@
         /* 响应式调整 */
         @media (max-width: 768px) {
             .back-home-btn {
-                top: 10px;
-                left: 10px;
-                width: 100px;
-                height: 32px;
-                padding: 6px 12px;
-                font-size: 13px;
+                top: auto !important;
+                left: auto !important;
+                bottom: 24px;
+                right: 24px;
+                width: 48px;
+                height: 48px;
+                padding: 0 !important;
+                border-radius: 50%;
+                background: #06b6d4;
+                color: white;
+                font-size: 0;
+                box-shadow: 0 4px 14px rgba(6,182,212,0.35);
+                z-index: 90;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .back-home-btn::before {
+                font-size: 20px !important;
+                margin: 0 !important;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
             }
         }
 </style>
