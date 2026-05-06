@@ -32,8 +32,10 @@
     a {
       color: $gray-darkest;
 
-      &:hover {
-        color: $hover-color;
+      @media (hover: hover) {
+        &:hover {
+          color: $hover-color;
+        }
       }
 
     }

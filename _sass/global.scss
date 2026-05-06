@@ -34,12 +34,14 @@ a {
   text-decoration: none;
   color: $link-color;
 
-  &:hover {
-    color: $hover-color;
-    -o-transition:.5s;
-    -ms-transition:.5s;
-    -moz-transition:.5s;
-    -webkit-transition:.5s;
+  @media (hover: hover) {
+    &:hover {
+      color: $hover-color;
+      -o-transition:.5s;
+      -ms-transition:.5s;
+      -moz-transition:.5s;
+      -webkit-transition:.5s;
+    }
   }
 
 }

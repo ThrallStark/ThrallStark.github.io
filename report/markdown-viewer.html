@@ -62,9 +62,11 @@
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
         }
-        .back-btn:hover {
-            background: #0891b2;
-            transform: translateY(-2px);
+        @media (hover: hover) {
+            .back-btn:hover {
+                background: #0891b2;
+                transform: translateY(-2px);
+            }
         }
 
         /* 目录导航 (TOC) */
@@ -110,9 +112,15 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        .toc a:hover, .toc a.active {
+        .toc a.active {
             color: #06b6d4;
             background: rgba(6, 182, 212, 0.1);
+        }
+        @media (hover: hover) {
+            .toc a:hover {
+                color: #06b6d4;
+                background: rgba(6, 182, 212, 0.1);
+            }
         }
         .toc-h3 { padding-left: 12px; font-size: 12px; }
 
@@ -171,7 +179,9 @@
             border-bottom: 1px solid rgba(34, 211, 238, 0.3);
             transition: all 0.2s;
         }
-        #content a:hover { border-bottom-color: #22d3ee; }
+        @media (hover: hover) {
+            #content a:hover { border-bottom-color: #22d3ee; }
+        }
         #content hr {
             border: none;
             border-top: 1px solid rgba(71, 85, 105, 0.35);
@@ -240,7 +250,9 @@
             font-weight: 600;
         }
         #content tr:nth-child(even) { background: rgba(30, 41, 59, 0.15); }
-        #content tr:hover { background: rgba(255,255,255,0.04); }
+        @media (hover: hover) {
+            #content tr:hover { background: rgba(255,255,255,0.04); }
+        }
 
         /* 加载 / 错误 */
         .loading, .error { text-align: center; padding: 120px 0; font-size: 1.1rem; }

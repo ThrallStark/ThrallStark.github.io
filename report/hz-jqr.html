@@ -45,7 +45,8 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-seri
 .hero-stat .label{font-size:12px;color:var(--text2)}
 .nav-pills{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:0 24px 40px;position:sticky;top:0;background:rgba(8,12,20,0.92);backdrop-filter:blur(20px);z-index:100;padding-top:16px}
 .nav-pill{padding:8px 20px;border-radius:100px;font-size:13px;font-weight:500;color:var(--text2);background:var(--card);border:1px solid var(--border);text-decoration:none;transition:all .2s}
-.nav-pill:hover,.nav-pill.active{background:var(--green);color:#000;font-weight:700}
+.nav-pill.active{background:var(--green);color:#000;font-weight:700}
+@media (hover: hover){.nav-pill:hover{background:var(--green);color:#000;font-weight:700}}
 .section{max-width:1200px;margin:0 auto;padding:0 24px 60px}
 .section-title{font-size:clamp(22px,4vw,36px);font-weight:700;margin-bottom:8px}
 .section-desc{color:var(--text2);font-size:14px;margin-bottom:24px}
@@ -54,7 +55,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-seri
 .section-header .badge{background:var(--green-dim);color:var(--green);font-size:11px;font-weight:700;padding:4px 12px;border-radius:100px}
 .company-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;margin-bottom:40px}
 .company-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px;transition:transform .25s,border-color .25s}
-.company-card:hover{transform:translateY(-4px);border-color:rgba(0,214,143,0.3)}
+@media (hover: hover){.company-card:hover{transform:translateY(-4px);border-color:rgba(0,214,143,0.3)}}
 .company-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:12px}
 .company-logo{width:44px;height:44px;border-radius:10px;background:var(--card2);display:flex;align-items:center;justify-content:center;font-size:22px}
 .company-tags{display:flex;gap:6px;flex-wrap:wrap}
@@ -82,7 +83,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-seri
 .data-table th{background:var(--card2);padding:12px 16px;text-align:left;font-weight:600;font-size:11px;color:var(--text2);text-transform:uppercase;border-bottom:1px solid var(--border)}
 .data-table td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.04)}
 .data-table tr:last-child td{border-bottom:none}
-.data-table tr:hover td{background:rgba(255,255,255,0.02)}
+@media (hover: hover){.data-table tr:hover td{background:rgba(255,255,255,0.02)}}
 .trend-up{color:var(--green);font-weight:700}
 .trend-down{color:var(--red);font-weight:700}
 .trend-neutral{color:var(--yellow);font-weight:700}
@@ -112,18 +113,18 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-seri
 /* Industry Map */
 .industry-map{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:32px}
 .industry-sector{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;transition:transform .2s,border-color .2s}
-.industry-sector:hover{transform:translateY(-2px);border-color:rgba(0,214,143,0.3)}
+@media (hover: hover){.industry-sector:hover{transform:translateY(-2px);border-color:rgba(0,214,143,0.3)}}
 .industry-sector-title{font-size:13px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
 .industry-sector-title .dot{width:10px;height:10px;border-radius:50%}
 .industry-companies{display:flex;flex-wrap:wrap;gap:6px}
 .industry-company{font-size:11px;padding:4px 10px;background:var(--card2);border-radius:6px;color:var(--text2);transition:color .2s}
-.industry-company:hover{color:var(--text)}
+@media (hover: hover){.industry-company:hover{color:var(--text)}}
 .industry-company.highlight{color:var(--green)}
 
 /* Extended company grid for top10 sections */
 .company-grid-extended{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px;margin-bottom:40px}
 .company-card-extended{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px;transition:transform .25s,border-color .25s}
-.company-card-extended:hover{transform:translateY(-4px);border-color:rgba(0,214,143,0.3)}
+@media (hover: hover){.company-card-extended:hover{transform:translateY(-4px);border-color:rgba(0,214,143,0.3)}}
 .swot-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:12px}
 .swot-item{padding:8px 10px;border-radius:8px;font-size:11px}
 .swot-s{background:rgba(0,214,143,0.1);border:1px solid rgba(0,214,143,0.2)}

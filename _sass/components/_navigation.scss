@@ -24,10 +24,12 @@ nav {
       color: #FFF;
       opacity: .8;
 
-      &:hover {
-        color: #FFF;
-        border-color: #FFF;
-        opacity: 1;
+      @media (hover: hover) {
+        &:hover {
+          color: #FFF;
+          border-color: #FFF;
+          opacity: 1;
+        }
       }
 
     }

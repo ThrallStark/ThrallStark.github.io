@@ -13,9 +13,11 @@
   color: $primary-color;
   -webkit-font-smoothing: antialiased;
 
-  &:hover {
-    color: darken($primary-color, 15%);
-    border-color: darken($primary-color, 15%);
+  @media (hover: hover) {
+    &:hover {
+      color: darken($primary-color, 15%);
+      border-color: darken($primary-color, 15%);
+    }
   }
 
 }
@@ -32,9 +34,11 @@
   border-color: $secondary-color;
   color: $secondary-color;
 
-  &:hover {
-    color: darken($secondary-color, 15%);
-    border-color: darken($secondary-color, 15%);
+  @media (hover: hover) {
+    &:hover {
+      color: darken($secondary-color, 15%);
+      border-color: darken($secondary-color, 15%);
+    }
   }
 
 }
@@ -43,9 +47,11 @@
   border-color: $gray-dark;
   color: $gray-dark;
 
-  &:hover {
-    color: darken($gray-dark, 15%);
-    border-color: darken($gray-dark, 15%);
+  @media (hover: hover) {
+    &:hover {
+      color: darken($gray-dark, 15%);
+      border-color: darken($gray-dark, 15%);
+    }
   }
 
 }
