@@ -362,6 +362,57 @@ var _hmt = _hmt || [];
   }
   .footer a { color: var(--green); text-decoration: none; }
 
+  /* 统一底部导航 */
+  .report-footer-nav {
+    padding: 32px 24px 48px;
+    text-align: center;
+    border-top: 1px solid rgba(71, 85, 105, 0.25);
+  }
+  .report-footer-nav .footer-btns {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .report-footer-nav .footer-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .report-footer-nav .footer-btn-primary {
+    background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 14px rgba(6, 182, 212, 0.25);
+  }
+  .report-footer-nav .footer-btn-secondary {
+    background: rgba(30, 41, 59, 0.6);
+    color: #e2e8f0;
+    border: 1px solid rgba(71, 85, 105, 0.4);
+    backdrop-filter: blur(8px);
+  }
+  @media (hover: hover) {
+    .report-footer-nav .footer-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(6, 182, 212, 0.35);
+    }
+    .report-footer-nav .footer-btn-secondary:hover {
+      background: rgba(30, 41, 59, 0.85);
+      border-color: rgba(6, 182, 212, 0.4);
+      color: white;
+    }
+  }
+  @media (max-width: 768px) {
+    .report-footer-nav .footer-btns { flex-direction: column; align-items: center; }
+    .report-footer-nav .footer-btn { width: 100%; max-width: 280px; justify-content: center; }
+  }
+
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -710,7 +761,14 @@ var _hmt = _hmt || [];
 
 <div class="footer">
   <p>数据来源：中国汽车工业协会、国家统计局、乘联会 | 📅 2026年3月</p>
-  <p>报告由 AI 研究生成 · <a href="/report/">📑 浏览更多报告</a> · <a href="/report/markdown-viewer.html?file=新能源汽车2026趋势分析_文字版.md&from=xny-2026.html">📄 文字版全文</a></p>
+  <p>报告由 AI 研究生成</p>
+</div>
+
+<div class="report-footer-nav">
+  <div class="footer-btns">
+    <a href="/report/markdown-viewer.html?file=新能源汽车2026趋势分析_文字版.md&from=xny-2026.html" class="footer-btn footer-btn-secondary">📄 阅读文字版报告</a>
+    <a href="/report/" class="footer-btn footer-btn-primary">📑 浏览更多报告</a>
+  </div>
 </div>
 <style>.table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1rem 0; border-radius: 8px; border: 1px solid rgba(71, 85, 105, 0.25); } .table-responsive table { min-width: 500px; width: 100%; } @media (max-width: 768px) { .table-responsive table { min-width: 400px; } }</style>
 <script>(function() { document.querySelectorAll('table').forEach(function(t) { var p = t.parentNode; if (p.classList && p.classList.contains('table-responsive')) return; var w = document.createElement('div'); w.className = 'table-responsive'; p.insertBefore(w, t); w.appendChild(t); }); })();</script>
