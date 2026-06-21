@@ -141,7 +141,9 @@
             margin-bottom: 30px;
         }
         .article-card {
-            display: block;
+            display: flex;
+            flex-direction: column;
+            height: 188px;
             background: white; /* 纯白色卡片，与淡蓝背景协调 */
             border-radius: 12px;
             padding: 22px 26px;
@@ -150,6 +152,7 @@
             transition: all 0.3s ease;
             border: 1px solid rgba(14, 165, 233, 0.1);
             box-shadow: 0 4px 12px rgba(14, 165, 233, 0.08);
+            overflow: hidden;
         }
         @media (hover: hover) {
             .article-card:hover {
@@ -163,11 +166,20 @@
             font-weight: 600;
             color: #1a1a1a;
             margin-bottom: 10px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
         .article-card .source {
             font-size: 0.85rem;
             color: #666;
             line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
         
         /* 侧边栏卡片 */
