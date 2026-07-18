@@ -19,6 +19,10 @@ nav:
       description: 博客文章
       url: /blog/
       target: _self
+    - title: Project
+      description: 项目展示
+      url: /project/
+      target: _self
     - title: Report
       description: 研究报告
       url: /report/
