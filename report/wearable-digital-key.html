@@ -283,6 +283,25 @@
             margin-top: 12px;
         }
         
+        .chart-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 32px 0;
+        }
+        
+        .chart-grid .chart {
+            margin: 0;
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(71, 85, 105, 0.25);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .chart-grid { grid-template-columns: 1fr; }
+        }
+        
         /* 表格 */
         table {
             width: 100%;
@@ -407,21 +426,19 @@
             <div class="section-number">①</div>
             <h2>市场洞察：两条曲线的交汇</h2>
             <p>数字钥匙跨越普及临界点，腕戴设备保有量大增——"腕上钥匙"的需求窗口已经打开。</p>
-            <p>2024年前装标配数字钥匙新车交付量超1000万辆（+54.52%，搭载率47.51%）；行业预测2027年装配率有望达80%。数据来源：CAICV、高工智能汽车研究院、佐思汽研。</p>
-            <p>蓝牙钥匙是绝对主力（2025年前装上险量1271万辆、渗透率55.31%）；UWB 基数低但增速最快，正从30万元级向20万元以下车型下探（小鹏P7+已标配）。</p>
             <div class="chart">
                 <img src="/assets/images/reports/wearable-digital-key/charts/c1_penetration.png" alt="中国乘用车数字钥匙前装搭载率趋势">
                 <p class="chart-caption">2024年前装标配数字钥匙新车交付量超1000万辆（+54.52%，搭载率47.51%）；行业预测2027年装配率有望达80%。数据来源：CAICV、高工智能汽车研究院、佐思汽研</p>
             </div>
-            <p>蓝牙钥匙是绝对主力（2025年前装上险量1271万辆、渗透率55.31%）；UWB 基数低但增速最快，正从30万元级向20万元以下车型下探（小鹏P7+已标配）。</p>
-            <div class="chart">
-                <img src="/assets/images/reports/wearable-digital-key/charts/c2_tech_share.png" alt="数字钥匙分技术路线渗透率">
-                <p class="chart-caption">蓝牙钥匙是绝对主力（2025年前装上险量1271万辆、渗透率55.31%）；UWB 基数低但增速最快，正从30万元级向20万元以下车型下探（小鹏P7+已标配）。</p>
-            </div>
-            <p>2024年中国成为全球最大腕戴市场（占全球32%）。新能源车主（25–45岁、科技尝鲜）与智能手表核心用户高度重合，保守估计车主腕戴保有率达40–60%。</p>
-            <div class="chart">
-                <img src="/assets/images/reports/wearable-digital-key/charts/c4_wrist.png" alt="中国腕戴设备市场出货量">
-                <p class="chart-caption">2024年中国成为全球最大腕戴市场（占全球32%）。新能源车主（25–45岁、科技尝鲜）与智能手表核心用户高度重合，保守估计车主腕戴保有率达40–60%。</p>
+            <div class="chart-grid">
+                <div class="chart">
+                    <img src="/assets/images/reports/wearable-digital-key/charts/c2_tech_share.png" alt="数字钥匙分技术路线渗透率">
+                    <p class="chart-caption">蓝牙钥匙是绝对主力（2025年前装上险量1271万辆、渗透率55.31%）；UWB 基数低但增速最快，正从30万元级向20万元以下车型下探（小鹏P7+已标配）。</p>
+                </div>
+                <div class="chart">
+                    <img src="/assets/images/reports/wearable-digital-key/charts/c4_wrist.png" alt="中国腕戴设备市场出货量">
+                    <p class="chart-caption">2024年中国成为全球最大腕戴市场（占全球32%）。新能源车主（25–45岁、科技尝鲜）与智能手表核心用户高度重合，保守估计车主腕戴保有率达40–60%。</p>
+                </div>
             </div>
             <div class="highlight-box">
                 <p><strong>判断：</strong>可穿戴车钥匙不是对物理钥匙的"完全替代"，而是"1个主力数字入口 + N层冗余"体系中的高粘性入口——约三成设备会被弃用，任何"唯一钥匙"策略都不可接受。</p>
@@ -535,16 +552,11 @@
             <div class="section-number">④</div>
             <h2>形态对比：手表是主战场，手环做补充，戒指做前瞻</h2>
             <p>三种形态在佩戴粘性、交互能力与车钥匙功能上限上呈明显梯度。</p>
-            <p>定性评估：基于用户粘性研究、硬件能力与在售产品功能（华为手环仅支持NFC车钥匙；戒指以NFC为主，UWB受功耗体积限制）。</p>
             <div class="chart">
                 <img src="/assets/images/reports/wearable-digital-key/charts/c6_radar_form.png" alt="不同可穿戴形态作为车钥匙的适配度">
                 <p class="chart-caption">定性评估：基于用户粘性研究、硬件能力与在售产品功能（华为手环仅支持NFC车钥匙；戒指以NFC为主，UWB受功耗体积限制）。</p>
             </div>
             <p>智能戒指是增长最快的可穿戴品类（2025E +49%），其"永不摘下"属性恰好命中数字钥匙"忘带/没电"焦虑，值得协议层前瞻布局。</p>
-            <div class="chart">
-                <img src="/assets/images/reports/wearable-digital-key/charts/c5_radar_tech.png" alt="数字钥匙技术路线能力画像">
-                <p class="chart-caption">CCC 3.0 标准工作流：80米BLE唤醒 → 10–20米UWB测距 → 3–10米迎宾区 → 1–3米解锁区 → 车内锚点确认启动；NFC全程低电备份。星闪已在问界M9量产首发。</p>
-            </div>
             
             <table>
                 <thead>
@@ -589,7 +601,10 @@
             <div class="section-number">⑤</div>
             <h2>技术选型：UWB 的体验优势在哪？BLE 够不够用？</h2>
             <p>四条技术路线是分工而非替代：BLE唤醒连接 → UWB安全测距 → NFC低电备份，星闪为第三势力。</p>
-            <p>CCC 3.0 标准工作流：80米BLE唤醒 → 10–20米UWB测距 → 3–10米迎宾区 → 1–3米解锁区 → 车内锚点确认启动；NFC全程低电备份。星闪已在问界M9量产首发。</p>
+            <div class="chart">
+                <img src="/assets/images/reports/wearable-digital-key/charts/c5_radar_tech.png" alt="数字钥匙技术路线能力画像">
+                <p class="chart-caption">CCC 3.0 标准工作流：80米BLE唤醒 → 10–20米UWB测距 → 3–10米迎宾区 → 1–3米解锁区 → 车内锚点确认启动；NFC全程低电备份。星闪已在问界M9量产首发。</p>
+            </div>
             
             <h3>"只有BLE就够用了吗？"——分价格带回答</h3>
             <table>
