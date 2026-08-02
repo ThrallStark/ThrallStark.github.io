@@ -359,76 +359,12 @@
             .report-footer-nav .footer-btn { width: 100%; max-width: 280px; justify-content: center; }
         }
         
-        /* 返回首页按钮 */
-        .back-home-btn {
-            width: 120px;
-            height: 36px;
-            padding: 8px 16px;
-            box-sizing: border-box;
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 20px;
-            border-radius: 20px;
-            position: fixed;
-            top: 80px;
-            left: 20px;
-            z-index: 40;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            background: #06b6d4;
-            color: white;
-            border: none;
-            box-shadow: 0 2px 8px rgba(6, 182, 212, 0.4);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .back-home-btn::before { content: "←"; font-size: 16px; }
-        @media (hover: hover) {
-            .back-home-btn:hover {
-                background: #0891b2;
-                transform: translateY(-2px);
-                box-shadow: 0 4px 12px rgba(6, 182, 212, 0.6);
-            }
-        }
-        @media (max-width: 768px) {
-            .back-home-btn {
-                top: auto !important;
-                left: auto !important;
-                bottom: 24px;
-                right: 24px;
-                width: 48px;
-                height: 48px;
-                padding: 0 !important;
-                border-radius: 50%;
-                background: #06b6d4;
-                color: white;
-                font-size: 0;
-                box-shadow: 0 4px 14px rgba(6,182,212,0.35);
-                z-index: 90;
-            }
-            .back-home-btn::before {
-                font-size: 20px !important;
-                margin: 0 !important;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                height: 100%;
-            }
-        }
-        
         /* 表格响应式 */
         .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1rem 0; }
         .table-responsive table { min-width: 600px; width: 100%; border-collapse: collapse; }
     </style>
 </head>
 <body>
-    <!-- 返回首页按钮 -->
-    <a href="/" class="back-home-btn">返回首页</a>
-
     <nav class="nav sticky">
         <div class="nav-inner">
             <div class="nav-title">
@@ -473,7 +409,20 @@
             <p>数字钥匙跨越普及临界点，腕戴设备保有量大增——"腕上钥匙"的需求窗口已经打开。</p>
             <p>2024年前装标配数字钥匙新车交付量超1000万辆（+54.52%，搭载率47.51%）；行业预测2027年装配率有望达80%。数据来源：CAICV、高工智能汽车研究院、佐思汽研。</p>
             <p>蓝牙钥匙是绝对主力（2025年前装上险量1271万辆、渗透率55.31%）；UWB 基数低但增速最快，正从30万元级向20万元以下车型下探（小鹏P7+已标配）。</p>
+            <div class="chart">
+                <img src="/assets/images/reports/wearable-digital-key/charts/c1_penetration.png" alt="中国乘用车数字钥匙前装搭载率趋势">
+                <p class="chart-caption">2024年前装标配数字钥匙新车交付量超1000万辆（+54.52%，搭载率47.51%）；行业预测2027年装配率有望达80%。数据来源：CAICV、高工智能汽车研究院、佐思汽研</p>
+            </div>
+            <p>蓝牙钥匙是绝对主力（2025年前装上险量1271万辆、渗透率55.31%）；UWB 基数低但增速最快，正从30万元级向20万元以下车型下探（小鹏P7+已标配）。</p>
+            <div class="chart">
+                <img src="/assets/images/reports/wearable-digital-key/charts/c2_tech_share.png" alt="数字钥匙分技术路线渗透率">
+                <p class="chart-caption">蓝牙钥匙是绝对主力（2025年前装上险量1271万辆、渗透率55.31%）；UWB 基数低但增速最快，正从30万元级向20万元以下车型下探（小鹏P7+已标配）。</p>
+            </div>
             <p>2024年中国成为全球最大腕戴市场（占全球32%）。新能源车主（25–45岁、科技尝鲜）与智能手表核心用户高度重合，保守估计车主腕戴保有率达40–60%。</p>
+            <div class="chart">
+                <img src="/assets/images/reports/wearable-digital-key/charts/c4_wrist.png" alt="中国腕戴设备市场出货量">
+                <p class="chart-caption">2024年中国成为全球最大腕戴市场（占全球32%）。新能源车主（25–45岁、科技尝鲜）与智能手表核心用户高度重合，保守估计车主腕戴保有率达40–60%。</p>
+            </div>
             <div class="highlight-box">
                 <p><strong>判断：</strong>可穿戴车钥匙不是对物理钥匙的"完全替代"，而是"1个主力数字入口 + N层冗余"体系中的高粘性入口——约三成设备会被弃用，任何"唯一钥匙"策略都不可接受。</p>
             </div>
@@ -587,7 +536,15 @@
             <h2>形态对比：手表是主战场，手环做补充，戒指做前瞻</h2>
             <p>三种形态在佩戴粘性、交互能力与车钥匙功能上限上呈明显梯度。</p>
             <p>定性评估：基于用户粘性研究、硬件能力与在售产品功能（华为手环仅支持NFC车钥匙；戒指以NFC为主，UWB受功耗体积限制）。</p>
+            <div class="chart">
+                <img src="/assets/images/reports/wearable-digital-key/charts/c6_radar_form.png" alt="不同可穿戴形态作为车钥匙的适配度">
+                <p class="chart-caption">定性评估：基于用户粘性研究、硬件能力与在售产品功能（华为手环仅支持NFC车钥匙；戒指以NFC为主，UWB受功耗体积限制）。</p>
+            </div>
             <p>智能戒指是增长最快的可穿戴品类（2025E +49%），其"永不摘下"属性恰好命中数字钥匙"忘带/没电"焦虑，值得协议层前瞻布局。</p>
+            <div class="chart">
+                <img src="/assets/images/reports/wearable-digital-key/charts/c5_radar_tech.png" alt="数字钥匙技术路线能力画像">
+                <p class="chart-caption">CCC 3.0 标准工作流：80米BLE唤醒 → 10–20米UWB测距 → 3–10米迎宾区 → 1–3米解锁区 → 车内锚点确认启动；NFC全程低电备份。星闪已在问界M9量产首发。</p>
+            </div>
             
             <table>
                 <thead>
@@ -672,7 +629,10 @@
             <div class="section-number">⑥</div>
             <h2>成本与体验增量：替代物理钥匙的经济账</h2>
             <p>反直觉的结论：BLE/NFC数字钥匙替代物理钥匙，车端成本不升反降。</p>
-            <p>传统PEPS车端约150元+实体钥匙约100元/把。省去随车2把实体钥匙即可对冲数字钥匙模块成本；真正花钱买体验的是UWB（贵约340元）。数字钥匙云平台开发费约200–300万元+License 30–50元/车。数据来源：申万宏源。</p>
+            <div class="chart">
+                <img src="/assets/images/reports/wearable-digital-key/charts/c3_bom.png" alt="车端钥匙系统BOM成本对比">
+                <p class="chart-caption">传统PEPS车端约150元+实体钥匙约100元/把。省去随车2把实体钥匙即可对冲数字钥匙模块成本；真正花钱买体验的是UWB（贵约340元）。数字钥匙云平台开发费约200–300万元+License 30–50元/车。数据来源：申万宏源。</p>
+            </div>
             
             <h3>成本优势</h3>
             <p><strong>车端：</strong>BLE方案BOM约123元，低于PEPS+实体钥匙组合，替代即降本。</p>
